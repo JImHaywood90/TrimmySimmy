@@ -1,0 +1,701 @@
+{
+	"NumberOfQuestions": 30,
+	"Properties": {
+		"Title": "Microsoft 365 Fundamentals",
+		"Code": "MS-900",
+        "CertLevel": 1,
+		"Version": 1,
+		"Passmark": 70,
+		"TimeLimit": 60,
+		"Instructions": "Choose the best answer for each question."
+	},
+	"Sections": [{
+		"Title": "Text Questions",
+		"Questions": [{
+				"No": 0,
+				"Text": "Which of the following is a benefit of using Microsoft 365?",
+				"Image": null,
+				"Answer": "C",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Increased on-premises server utilization"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Reduced collaboration capabilities"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Scalability and flexibility"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Increased hardware costs"
+					}
+				],
+				"Explanation": "Microsoft 365 provides scalability and flexibility, allowing organizations to quickly adapt to changes in their needs."
+			},
+			{
+				"No": 1,
+				"Text": "What is the primary purpose of Microsoft Teams?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Email communication"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Collaboration and communication"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Data analysis"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Project management"
+					}
+				],
+				"Explanation": "Microsoft Teams is primarily designed for collaboration and communication within teams."
+			},
+			{
+				"No": 2,
+				"Text": "Which Microsoft 365 service provides cloud-based email?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Exchange Online"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "SharePoint Online"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Yammer"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "OneDrive for Business"
+					}
+				],
+				"Explanation": "Exchange Online is Microsoft's cloud-based email service, part of the Microsoft 365 suite."
+			},
+			{
+				"No": 3,
+				"Text": "What is the purpose of Microsoft 365 Compliance center?",
+				"Image": null,
+				"Answer": "D",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "To manage devices"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "To manage users and groups"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "To manage software updates"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "To manage compliance and risk"
+					}
+				],
+				"Explanation": "Microsoft 365 Compliance center is designed to help organizations manage compliance and risk."
+			},
+			{
+				"No": 4,
+				"Text": "Which of the following is a benefit of using OneDrive for Business?",
+				"Image": null,
+				"Answer": "C",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "On-premises data storage"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Reduced collaboration capabilities"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Access to files from anywhere"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Increased hardware costs"
+					}
+				],
+				"Explanation": "OneDrive for Business allows users to access their files from anywhere, on any device."
+			},
+			{
+				"No": 5,
+				"Text": "What is the primary purpose of Microsoft Power BI?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Email communication"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Data visualization and business intelligence"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Collaboration and communication"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Project management"
+					}
+				],
+				"Explanation": "Microsoft Power BI is a business analytics tool that provides interactive visualizations and business intelligence capabilities."
+			},
+			{
+				"No": 6,
+				"Text": "Which of the following is a feature of Microsoft 365 Business Premium?",
+				"Image": null,
+				"Answer": "D",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Unlimited email storage"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Unlimited OneDrive storage"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Access to Windows 10 Enterprise"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Advanced threat protection"
+					}
+				],
+				"Explanation": "Microsoft 365 Business Premium includes advanced threat protection to help protect against sophisticated threats hidden in email attachments and links, and get cutting-edge defenses against zero-day threats, ransomware, and other advanced malware attempts."
+			},
+			{
+				"No": 7,
+				"Text": "Which of the following is a feature of SharePoint Online?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Real-time collaboration on documents"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Website creation and content management"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Email communication"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Data visualization"
+					}
+				],
+				"Explanation": "SharePoint Online is primarily used for creating websites and managing content, although it also supports collaboration and other features."
+			},
+			{
+				"No": 8,
+				"Text": "What is the primary purpose of Microsoft Planner?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Task and project management"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Email communication"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Data visualization"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Collaboration and communication"
+					}
+				],
+				"Explanation": "Microsoft Planner is a task and project management tool that allows teams to create, assign, and organize work visually."
+			},
+			{
+				"No": 9,
+				"Text": "Which of the following is a feature of Microsoft 365 E5?",
+				"Image": null,
+				"Answer": "D",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Unlimited email storage"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Unlimited OneDrive storage"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Access to Windows 10 Enterprise"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Audio Conferencing"
+					}
+				],
+				"Explanation": "Microsoft 365 E5 includes Audio Conferencing that allows you to host or participate in meetings in Microsoft Teams with a dial-in number."
+			},
+			{
+				"No": 10,
+				"Text": "Which of the following is a benefit of using Microsoft Azure?",
+				"Image": null,
+				"Answer": "C",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Increased on-premises server utilization"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Reduced collaboration capabilities"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Scalability and flexibility"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Increased hardware costs"
+					}
+				],
+				"Explanation": "Microsoft Azure provides scalability and flexibility, allowing organizations to quickly adapt to changes in their needs."
+			},
+			{
+				"No": 11,
+				"Text": "What is the primary purpose of Microsoft Yammer?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Email communication"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Enterprise social networking"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Data analysis"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Project management"
+					}
+				],
+				"Explanation": "Microsoft Yammer is an enterprise social networking service used for private communication within organizations."
+			},
+			{
+				"No": 13,
+				"Text": "You need to consider the underlined segment to establish whether it is accurate. <br> All applications will remain in a hybrid environment after migrating to Microsoft Azure.<br> Select 'No adjustment required' if the underlined segment is accurate.<br><br> If the underlined segment is inaccurate, select the accurate option.",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "No adjustment required."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Applications that manage sensitive information"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Applications where access requires a USB-token device"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "All legacy applications"
+					}
+				]
+			},
+			{
+				"No": 14,
+				"Text": "Your company plans to move their Server environment to the cloud. <br> You have been tasked with identifying a cloud model that allows for the current email environment to be upgraded, while also reducing server and application maintenance.<br> You need to make sure that the requirements are met. <br><br> Solution: You recommend the Platform as a service (PaaS) model. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+			{
+				"No": 15,
+				"Text": "Your company plans to move their Server environment to the cloud. <br> You have been tasked with identifying a cloud model that allows for the current email environment to be upgraded, while also reducing server and application maintenance.<br> You need to make sure that the requirements are met. <br><br> Solution: You recommend the Infrastructure as a service (IaaS) model. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+                      
+			{
+				"No": 16,
+				"Text": "Your company plans to move their Server environment to the cloud. <br> You have been tasked with identifying a cloud model that allows for the current email environment to be upgraded, while also reducing server and application maintenance.<br> You need to make sure that the requirements are met. <br> Solution: You recommend the Software as a service (SaaS) model. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 17,
+				"Text": "Your company has a Microsoft Office 365 subscription.As an administrator for this subscription, you are educating users on which component to use to register their personal home device with the company.<br><br><br>  Which of the following is the component that should be used?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Microsoft Azure AD Identity Protection"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Enterprise Mobility + Security"
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Microsoft Teams"
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Microsoft Yammer"
+					}
+				]
+			},
+           {
+				"No": 18,
+				"Text": "Your company intends to deploy a number of Microsoft Surface devices that run Windows 10, using Windows AutoPilot. <br> You have been tasked with preparing the devices for the deployment by importing a CSV file via the Microsoft 365 Device Management portal. <br><br><br>  Which of the following combinations of blades will help you achieve your goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "The Dashboard and Device Configuration blades."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "The Device Enrollment and Devices blades."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "The Device Enrollment and Devices Compliance blades."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "The Device Compliance and Device Configuration blades."
+					}
+				]
+			},
+            {
+				"No": 19,
+				"Text": "Your company has a Microsoft Office 365 subscription. <br> As an administrator for this subscription, you have been tasked with recommending a solution that will allow users to make use of unsuited applications on their Windows 10 devices. <br><br><br>  Which of the following should you recommend?",
+				"Image": null,
+				"Answer": "D",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Azure AD Connect."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Configuration Manager."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Windows AutoPilot."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Windows Virtual Desktop."
+					}
+				]
+			},
+            {
+				"No": 20,
+				"Text": "Your company has a Microsoft Office 365 subscription. <br> As an administrator for this subscription, you have been tasked with recommending a solution that forces cloud-based applications to use the same credentials as on-premises applications. <br><br><br>  Which of the following should you recommend?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Azure AD Connect."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Configuration Manager."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Windows AutoPilot."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Azure AD Application Proxy."
+					}
+				]
+			},
+            {
+				"No": 21,
+				"Text": "Your company has a Microsoft Office 365 subscription. <br> As an administrator for this subscription, you have been tasked with recommending a solution that prohibits users from copying corporate information from managed applications installed on unmanaged devices. <br><br><br>  Which of the following should you recommend?",
+				"Image": null,
+				"Answer": "",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Windows Virtual Desktop."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Microsoft Intune."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Windows AutoPilot."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Azure AD Application Proxy."
+					}
+				]
+			},
+            {
+				"No": 22,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. <br> However, every question has a distinctive result. Establish if the solution satisfies the requirements. You have recently made use of Windows Autopilot to deploy Windows 10 devices in your company's environment. <br> You have been asked to make sure that data that stored in OneDrive for Business is available to users from remote locations. <br> Solution: You enable Microsoft Azure AD multi-factor authentication for the users. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 23,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. However, every question has a distinctive result. <br> Establish if the solution satisfies the requirements. <br>You have recently made use of Windows Autopilot to deploy Windows 10 devices in your company's environment.<br> You have been asked to make sure that data that stored in OneDrive for Business is available to users from remote locations. <br> Solution: You enroll the devices in Microsoft Intune. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 24,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. <br> However, every question has a distinctive result. Establish if the solution satisfies the requirements. <br>You have recently made use of Windows Autopilot to deploy Windows 10 devices in your company's environment.<br> You have been asked to make sure that data that stored in OneDrive for Business is available to users from remote locations. <br> Solution: You inform users that they should use their Microsoft Azure AD credentials to sign in to their devices. <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 25,
+				"Text": "Your company makes use of Microsoft 365 in their environment. <br> You have been tasked with making sure that admin roles are protected. The feature you use should achieve this by requiring approvals. <br><br><br>  Which of the following is a feature you should use?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Mobile application protection policy."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Microsoft Azure AD Identity Protection."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Microsoft Azure AD Privilege Identity Protection."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Microsoft Azure AD Conditional Access."
+					}
+				]
+			},
+            {
+				"No": 26,
+				"Text": "Your company makes use of Microsoft 365 in their environment. <br> You have been tasked with making sure that members of the Global Administrators group are protected. <br>The feature you use should achieve this by making use of dynamic risk profiles. <br><br><br>  Which of the following is a feature you should use?",
+				"Image": null,
+				"Answer": "C",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Mobile application protection policy."
+					},
+					{
+						"Alphabet": "B",
+						"Text": "Device configuration policy."
+					},
+					{
+						"Alphabet": "C",
+						"Text": "Microsoft Azure AD Privilege Identity Protection."
+					},
+					{
+						"Alphabet": "D",
+						"Text": "Microsoft Azure AD Conditional Access."
+					}
+				]
+			},
+            {
+				"No": 27,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. <br> However, every question has a distinctive result. Establish if the solution satisfies the requirements.<br> You have been tasked with deploying Microsoft 365 for your company in a hybrid configuration.<br> You want to make sure that a smart card can be used by staff for authentication purposes. <br><br>Solution: You configure the use of password hash synchronization with single-on as the hybrid identity solution. <br> <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 28,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. <br> However, every question has a distinctive result. <br>Establish if the solution satisfies the requirements. <br>You have been tasked with deploying Microsoft 365 for your company in a hybrid configuration. <br>You want to make sure that a smart card can be used by staff for authentication purposes. <br><br>Solution: You configure the use of pass-through authentication and single sign-on as the hybrid identity solution. <br> <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "B",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+            {
+				"No": 29,
+				"Text": "Note: The question is included in a number of questions that depicts the identical set-up. <br> However, every question has a distinctive result.<br> Establish if the solution satisfies the requirements. <br>You have been tasked with deploying Microsoft 365 for your company in a hybrid configuration. <br>You want to make sure that a smart card can be used by staff for authentication purposes. <br><br>Solution: You configure the use of Active Directory Federation Services (AD FS) as the hybrid identity solution. <br> <br><br>Does the solution meet the goal?",
+				"Image": null,
+				"Answer": "A",
+				"IsMultipleAnswer": false,
+				"Answers": null,
+				"Options": [{
+						"Alphabet": "A",
+						"Text": "Yes"
+					},
+					{
+						"Alphabet": "B",
+						"Text": "No"
+					}
+				]
+			},
+           {
+            "No": 30,
+            "Type": "DragAndDrop",
+            "Text": "DRAG DROP - Your company has a Microsoft Office 365 ProPlus subscription. <br>You are required to make use of Microsoft Azure Information Protection for document classification and protection. <br>Which of the following options should you use to achieve your goal? <br>Answer by dragging the correct options from the list to the answer area. Select and Place:",
+            "Options": [
+                "Add an Azure subscription to your Microsoft Tenant.",
+                "Enable the default Microsoft Azure AD Privilege Identity Protection Policy",
+                "Install the Azure Information Protection Client",
+                "Create a custom Azure Information Protection policy with the Confidential label",
+                "Enable the default Azure Information Protection policy"
+            ],
+            "RequiredOptions": 2,
+            "CorrectOrder": [
+               "Add an Azure subscription to your Microsoft Tenant.",
+                "Enable the default Azure Information Protection policy"
+            ],
+            "Explanation": "Here is the explanation..."
+        }
+                      
+		]
+	}]
+}

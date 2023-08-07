@@ -1,0 +1,548 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f7ff;
+    color: #e6f7ff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"], input[type="radio"] {
+    display: none;
+}
+
+/* Create a new custom checkbox */
+body.dark-mode input[type="checkbox"] + label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+body.dark-mode input[type="checkbox"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #FFF;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Show a checkmark when the checkbox is checked */
+body.dark-mode input[type="checkbox"]:checked + label:before {
+    background: #99CCFE;
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* Similar styles can be applied for radio buttons */
+body.dark-mode input[type="radio"] + label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+body.light-mode input[type="radio"] + label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+
+body.dark-mode input[type="radio"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-mode input[type="radio"]:checked + label:before {
+    background: #99CCFE;
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+body.light-mode input[type="radio"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+body.light-mode input[type="radio"]:checked + label:before {
+    background: skyblue;
+    box-shadow: inset 0 0 0 2px #000;
+}
+
+
+body.light-mode .swal2-popup {
+    background-color: #e6f7ff;
+    color: #00334e;
+}
+
+body.dark-mode .swal2-popup {
+    background-color: #00334e;
+    color: #e6f7ff;
+}
+
+.custom-toast-container {
+    top: 59px !important;
+}
+
+#exam-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.exam-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.exam-card button {
+    margin-bottom: 12px;
+    width: 87%;
+    font-size: 1.4em;
+    color: white;
+}
+
+.cert-level-image {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.exam-header {
+    background-color: #007BFF; /* Change this to the color you want */
+    color: white;
+    font-size: 2em; 
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+}
+
+.exam-header .exam-code {
+    grid-column: 2;
+    text-align: center;
+}
+.exam-header .cert-level-image {
+    grid-column: 1;
+    width: 100px;
+}
+
+.exam-subheader {
+    background-color: #0078d4; /* Change this to the shade of blue you want */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.exam-subheader .exam-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.exam-card .exam-details p {
+    font-size: 1.4em; /* Adjust as needed */
+}
+
+
+.exam-code {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.3em;
+    padding-left: 10px;
+}
+
+.blur-background {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}
+
+body.light-mode #sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    border: 2px dashed #555;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 100px;
+    background-color: #f9f9f9;
+}
+
+body.dark-mode #sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    border: 2px dashed #555;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 100px;
+    background-color: #080808;
+    color: white;
+}
+
+body.dark-mode #sortable li{
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 95%;
+    border: 1px solid #ccc;
+    background-color: #000000;
+    color: white;
+    cursor: move;
+}
+
+
+body.light-mode #sortable li {
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 95%;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    cursor: move;
+    color: black;
+}
+
+.dragDropFlex {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+body.dark-mode #sortable-all, #sortable-selected {
+    border: 2px dotted #fff;
+    min-height: 200px;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+
+body.light-mode #sortable-all, #sortable-selected {
+    border: 2px dotted #000;
+    min-height: 200px;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+}
+
+
+#sortable-all li, #sortable-selected li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #fff;
+    cursor: move;
+}
+
+
+
+/* Light Mode */
+body.light-mode {
+    background-color: #e6f7ff;
+    color: #00334e;
+}
+
+
+body.light-mode h1 {
+    background-color: #99ccff;
+    color: cornsilk;
+}
+
+body.light-mode #timeline-container {
+    background-color: #99ccff;
+}
+
+body.light-mode .timeline-element {
+    border-color: cornsilk;
+}
+
+
+body.light-mode .button-container {
+    background-color: #99ccff;
+}
+
+
+body.light-mode .timeline-element.current {
+    background-color: #139ae2;
+    color: #e6f7ff;
+}
+
+body.light-mode button {
+    background-color: skyblue;
+}
+
+body.light-mode button:hover {
+    background-color: lightskyblue;
+}
+
+body.light-mode .modal-content {
+    border-color: #e6f7ff;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #00334e;
+    color: #e6f7ff;
+}
+
+body.dark-mode h1 {
+    background-color: #002240;
+    color: #e6f7ff;
+}
+
+body.dark-mode #timeline-container {
+    background-color: #002240;
+}
+
+body.dark-mode .button-container {
+    background-color: #002240;
+}
+
+body.dark-mode .timeline-element {
+    border-color: #e6f7ff;
+}
+
+body.dark-mode .timeline-element.current {
+    background-color: #e6f7ff;
+    color: #00334e;
+}
+
+
+body.dark-mode button {
+    background-color: #99ccff;
+    color: #00334e;
+}
+
+body.dark-mode button:hover {
+    background-color: #e6f7ff;
+    color: #00334e;
+}
+
+body.dark-mode .modal-content {
+    border-color: #e6f7ff;
+    background-color: #00334e;
+    color: #e6f7ff;
+}
+
+
+
+h1 {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+}
+
+#timeline-container {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 85px; /* adjust as needed */
+    background-color: white; /* adjust as needed */
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#timeline {
+    display: flex;
+    bottom: 0px;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.timeline-incorrect {
+    background-color: orangered;
+}
+
+.marked {
+    background-color: #ff9300;
+}
+
+.timeline-element {
+    padding: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.timeline-element.current {
+    background-color: #00f;
+    color: #fff;
+}
+
+
+#question-number {
+    margin-top: 120px;
+    margin: 20px;
+}
+
+#question-text, #options {
+    max-height: calc(100vh - 400px); /* Adjust as needed */
+    overflow-y: auto;
+    padding-right: 15px; /* To avoid scrollbar overlapping content */
+    padding-left: 20px;
+}
+
+
+#options p {
+    margin: 10px 0;
+}
+
+#options label {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+#toggle-mode {
+  right:0px;
+  position:absolute;
+  top:-15px;  
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    background-color: #020a69;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 5px;
+    cursor: pointer;
+}
+
+.button-container {
+    position: fixed;
+    bottom: 75px;
+    width: 100%;
+    background-color: #f4f4f4; /* same as body background color */
+    text-align: center;
+    padding: 10px 0;
+}
+
+button:hover {
+    background-color: rgb(7, 14, 108);
+}
+
+body.light-mode #close-modal{
+    position:absolute;
+    top:2px;
+    right:2px;
+    border:none;
+    background:none;
+    color: black;
+    font-size: 2em;
+}
+
+body.dark-mode #close-modal{
+    position:absolute;
+    top:2px;
+    right:2px;
+    border:none;
+    background:none;
+    color: white;
+    font-size: 2em;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* adjust this to change the width of the modal */
+    box-sizing: border-box;
+}
+
+#score-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#score-stats {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#score-chart-container {
+    flex: 1;
+    width: 300px;
+    height: 300px;
+}
+
+#score-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#score-buttons button {
+    width: 30%;  /* Adjust this value as needed */
+}
+
+
+h1 {
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+}
+
+#explanation {
+    position: fixed;
+    bottom: 156px;  /* Adjust this value to position the explanation above the footer */
+    width: 100%;
+    text-align: center;
+}

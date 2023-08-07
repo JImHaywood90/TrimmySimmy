@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Questy Jenny!</title>
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+        <link id="prism-theme" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+        <script src="https://cdn.tiny.cloud/1/gxzchyyytkefcdmh9jhey9ta1rdce4hwmlbk4n6aj7h9o6cz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.5.1/css/tabulator_materialize.min.css" integrity="sha512-Fu6O++rqzjEvm6dCIE0fwGrr7qOVTvSsuz0qzLWIyC+qJRoJiQbwH8HN3BCTPxT1d0E2kj2Dla2Os94LqaRnbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
+        <link rel="stylesheet" href="CSS/ExamGeneratorStyles.css">
+    </head>
+    <body>
+        <!-- SmartWizard html -->
+        <div id="smartwizard">
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="">
+                    <div class="num">1</div>
+                    Exam Details
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">
+                    <span class="num">2</span>
+                    Add Questions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">
+                    <span class="num">3</span>
+                    <span class="revQ"> Review Questions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">
+                    <span class="num">4</span>
+                    Review and Upload
+                  </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+                    <!-- Initial Details Form -->
+                <div id="initial-form">
+                  <h2>Choose an option:</h2>
+                  <button class="custom-btn" onclick="showCreateNewForm()">Create New Exam</button>
+                  <button class="custom-btn" onclick="showModifyExistingForm()">Modify Existing Exam</button>
+                  <button class="custom-btn" onclick="uploadCustomExam()">Upload Custom Exam</button>
+                </div>
+
+                <div id="create-new-form" class="hidden">
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title"><br>
+
+                    <label for="certLevel">Certification Logo:</label><br>
+                    <div class="cert-container">
+                        <img id="certImage" width="48px" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
+                        <select id="certLevel" name="certLevel" onchange="updateImage()">
+                            <option value="1">Microsoft Fundementals (1 Star)</option>
+                            <option value="2">Microsoft Associate (2 Star)</option>
+                            <option value="3">Microsoft Expert (3 Stars)</option>
+                            <option value="4">ITIL</option>
+                            <option value="5">Cisco</option>
+                            <option value="6">Comptia</option>
+                            <option value="7">3CX</option>
+                        </select>
+                    </div><br>
+
+                    <label for="code">Code:</label><br>
+                    <input type="text" id="code" name="code"><br>
+
+                    <label for="version">Version:</label><br>
+                    <input type="number" id="version" name="version"><br>
+
+                    <label for="passmark">Passmark (Percentage as int):</label><br>
+                    <input type="number" id="passmark" name="passmark"><br>
+
+                    <label for="timeLimit">Time Limit (in mins):</label><br>
+                    <input type="number" id="timeLimit" name="timeLimit"><br>
+                </div>
+                <div id="modify-existing-form" class="hidden">
+                  <h2>Select an existing exam:</h2>
+                  <div id="examSelector">
+                    <!-- Dynamically populate this div with the exam buttons -->
+                  </div>
+                </div>
+
+                </div>
+                <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                    <!-- question generating code should go here -->
+                    <div id="questionCountLabel" class="revQB question-count-label">0 Questions</div>
+                    <h2>What type of question do you want to add?</h2>
+                    <div class="question-buttons">
+                      <button onclick="callGenerateFunction('DragAndDrop')">Drag And Drop</button>
+                      <button onclick="callGenerateFunction('Dropdown')">Dropdown</button>
+                      <button onclick="callGenerateFunction('MultipleAnswer')">Multiple Answer</button>
+                      <button onclick="callGenerateFunction('SingleAnswer')">Single Answer</button>
+                      <button onclick="callGenerateFunction('SortList')">Sortable List</button>
+                    </div>
+
+                    <div id="GenerateSingleAnswer" style="display: none; ">
+                        <h3>Add a New Single Answer Question</h3>
+
+                        <label for="questionText">Question:</label><br>
+                        <textarea id="questionText" name="questionText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="addOption()">Add Option</button><br><br>
+                        <label>Options:</label><br>
+                        <div id="optionsContainer">
+                            <!-- Radio button options will be added here -->
+                        </div><br>
+                        <label for="explanationText">Explanation:</label><br>
+                        <textarea id="explanationText" name="explanationText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="saveQuestion()">Save and Add More</button>
+                        <button type="button" class="custom-btn" onclick="saveQuestion(true)">Save and Close</button>
+                    </div>
+                    <div id="GenerateMultipleAnswer" style="display:none;">
+                        <h3>Add a New Multiple Answer Question</h3>
+
+                        <label for="multipleQuestionText">Question:</label><br>
+                        <textarea id="multipleQuestionText" name="multipleQuestionText" rows="4" cols="50"></textarea><br>
+
+                        <label>Add Available Options (Select the corrct answers using the checkboxes):</label><br>
+                        <div id="multipleOptionsContainer">
+                            <!-- Checkbox options will be added here -->
+                        </div><br>
+                        <button type="button" class="custom-btn" onclick="addMultipleOption()">Add Option</button><br><br>
+                        <label for="MultipleAnswerExplanationText">Explanation:</label><br>
+                        <textarea id="MultipleAnswerExplanationText" name="MultipleAnswerExplanationText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="saveMultipleQuestion()">Save and Add More</button>
+                        <button type="button" class="custom-btn" onclick="saveMultipleQuestion(true)">Save and Close</button>
+                    </div>
+                    <div id="GenerateSortList" style="display:none;">
+                        <h3>Add a New Sortable List Question</h3>
+
+                        <label for="sortListQuestionText">Question:</label><br>
+                        <textarea id="sortListQuestionText" name="sortListQuestionText" rows="4" cols="50"></textarea><br><br>
+                        <label>Options (in correct order):</label><br>
+                        <div id="sortListOptionsContainer">
+                            <!-- Sortable list options will be added here -->
+                        </div><br>
+                        <button type="button" class="custom-btn" onclick="addSortListOption()">Add Option</button><br><br>
+                        <label for="sortListExplanationText">Explanation:</label><br>
+                        <textarea id="sortListExplanationText" name="sortListExplanationText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="saveSortListQuestion()">Save and Add More</button>
+                        <button type="button" class="custom-btn" onclick="saveSortListQuestion(true)">Save and Close</button>
+                    </div>
+                    <div id="GenerateDropdown" style="display:none;">
+                        <h3>Add a New Dropdown Question</h3>
+
+                        <label for="dropdownQuestionText">Question:</label><br>
+                        <textarea id="dropdownQuestionText" name="dropdownQuestionText" rows="4" cols="50"></textarea><br><br>
+
+                        <label>Dropdowns:</label><br>
+                        <div id="dropdownOptionsContainer">
+                            <!-- Dropdown options will be added here -->
+                        </div><br>
+
+                        <button type="button" class="custom-btn" onclick="addDropdownOption()">Add Dropdown Option</button><br><br>
+
+                        <label for="dropdownExplanationText">Explanation:</label><br>
+                        <textarea id="dropdownExplanationText" name="dropdownExplanationText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="saveDropdownQuestion()">Save and Add More</button>
+                        <button type="button" class="custom-btn" onclick="saveDropdownQuestion(true)">Save and Close</button>
+                    </div>
+                    <div id="GenerateDragAndDrop" style="display:none;">
+                        <h3>Add a New Drag And Drop Question</h3>
+                        <p>Add all the available options and then click on the correct answers in order to save the correct order.</p>
+                        <label for="dragAndDropQuestionText">Question:</label><br>
+                        <textarea id="dragAndDropQuestionText" name="dragAndDropQuestionText" rows="4" cols="50"></textarea><br><br>
+
+                        <label for="numOptions">Number of Options:</label><br>
+                        <input type="number" id="numOptions" name="numOptions" min="1" max="10" value="3"><br>
+                        <button type="button" onclick="generateOptions()">Generate Options</button><br><br>
+                        <div id="AddOptionsContainer">
+                        
+                        </div><br>
+                        <div id="AvailableOptionsDAD"  class="hidden">
+                        <label>Available Options:</label><br>
+                        <div id="dragAndDropOptionsContainer">
+                            <!-- Available options will be added here -->
+                        </div>
+                        </div>
+                        <button type="button" onclick="saveOptions()">Save Options</button>
+                        <div id="CorrectOrderDAD" class="hidden">
+                        <label>Correct Order:</label><br>
+                        <div id="correctOrderContainer" class="visible"></div><br>
+                        </div>
+                        <label for="dragAndDropExplanationText">Explanation:</label><br>
+                        <textarea id="dragAndDropExplanationText" name="dragAndDropExplanationText" rows="4" cols="50"></textarea><br><br>
+
+                        <button type="button" class="custom-btn" onclick="saveDragAndDropQuestion()">Save and Add More</button>
+                        <button type="button" class="custom-btn" onclick="saveDragAndDropQuestion(true)">Save and Close</button>
+                    </div>
+                </div>
+                <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+                    <h2 class="revQ">Review Questions</h2>
+                    <div id="questions-list"></div>
+                    <div id="editQuestionContainer"></div>
+                </div>
+                <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+                    <!-- Resulting JSON -->
+                    <h2>Resulting JSON</h2>
+                    <div class="code-block" id="result-json">
+                            <pre><code id="json-output" class="language-json"></code></pre>
+                            <button id="show-more-button" onclick="toggleCodeBlock()">Show More</button>
+                    </div>
+                    <button onclick="uploadExamJSON()" class="custom-btn">Upload Exam to Trimmy Simmy</button>
+                </div>
+            </div>
+            
+            <!-- Include optional progressbar HTML -->
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>  
+        <script src="JS/generateExam.js"></script>
+    </body>
+</html>

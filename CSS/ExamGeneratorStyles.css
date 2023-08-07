@@ -1,0 +1,224 @@
+/* Additional styles for exam buttons */
+#examSelector button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 4px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#examSelector button:hover {
+  background-color: #0056b3;
+}
+
+/* Add CSS to style the question count label */
+.question-count-label {
+  position: absolute;
+  top: 25px; /* Adjust the top value as needed to position the label correctly */
+  right: 20px; /* Adjust the right value as needed to position the label correctly */
+  color: #007bff;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+        .code-block {
+          position: relative;
+          height: 100vh; /* Set the initial fixed height */
+          overflow: hidden;
+          max-height: 500px;
+        }
+
+        #show-more-button {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 5px;
+            background-color: #007bff;
+            color: whitesmoke;
+            border: none;
+            cursor: pointer;
+        }
+
+        .expanded {
+          height: auto; /* Set the expanded height */
+          overflow: auto;
+          max-height: none;
+        }
+
+        .wrap-text {
+            white-space: pre-wrap;
+        }
+            
+        .tabulator-tree-level-1{
+            display: none !important;
+        }
+        .tabulator-editing textarea {
+            height: 250px !important;
+            overflow: auto !important;
+        }
+            
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+            
+        .clickable-option {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: inline-block;
+            margin: 4px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .clickable-option:hover {
+            background-color: #e0e0e0;
+            border-color: #aaa;
+        }
+
+        .correct-order-item {
+            padding: 8px 12px;
+            background-color: #d0ffd0;
+            border: 1px solid #aad0aa;
+            display: inline-block;
+            margin: 4px;
+            border-radius: 4px;
+        }
+            
+        .question-buttons {
+          display: flex;
+          gap: 10px; /* Adds spacing between buttons */
+        }
+
+        .question-buttons button {
+          cursor: pointer;
+          padding: 10px;
+          background-color: #007bff;
+          border: none;
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+          transition: background-color 0.3s ease;
+        }
+
+        .question-buttons button:hover {
+          background-color: #0056b3;
+        }
+
+        .custom-btn {
+            background-color: #5bc0de;
+            border: 1px solid #46b8da;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .custom-btn:hover {
+            background-color: #46b8da;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="checkbox"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #66afe9;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+        }
+
+        button,
+        .custom-btn {
+          background-color: #007bff;
+          border: none;
+          color: #fff;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+        }
+
+.tabulator .tabulator-footer .tabulator-page.active {
+    background-color: #0056b3;
+    color: white;      
+}
+
+.tabulator .tabulator-footer .tabulator-page {
+    background-color: #007bff;
+    color: white;      
+}
+
+        /* Hover styles for buttons */
+        button:hover,
+        .custom-btn:hover {
+          background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #555;
+        }
+            
+        .cert-container {
+            display: flex;
+            align-items: center;
+        }
+            
+        .cert-container img {
+            margin-right: 10px;
+        }
+            
+        .cert-container select {
+            width: auto; /* Adjust as needed */
+        }
+
+
+        /* Container for choices, if needed */
+        .choicesContainer {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Styles for checkbox */
+        input[type="checkbox"] {
+            width: auto;
+            padding: 0;
+            margin-right: 5px;
+        }

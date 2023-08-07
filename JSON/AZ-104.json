@@ -1,0 +1,135 @@
+{
+  "NumberOfQuestions": 5,
+  "Properties": {
+    "Title": "Microsoft Azure Administrator",
+    "Code": "AZ-104",
+    "CertLevel": 2,
+    "Version": 3,
+    "Passmark": 75,
+    "TimeLimit": 120,
+    "Instructions": ""
+  },
+  "Sections": [
+    {
+      "Title": "Text Questions",
+      "Questions": [
+        {
+          "No": 0,
+          "Text": "Your company has serval departments. Each department has a number of virtual machines (VMs).<br>The company has an Azure subscription that contains a resource group named RG1.<br>All VMs are located in RG1.<br>You want to associate each VM with its respective department.<br>What should you do?",
+          "Image": null,
+          "Answer": "C",
+          "IsMultipleChoice": false,
+          "Answers": null,
+          "Options": [
+            {
+              "Alphabet": "A",
+              "Text": "Create Azure Management Groups for each department."
+            },
+            {
+              "Alphabet": "B",
+              "Text": "Create a resource group for each department."
+            },
+            {
+              "Alphabet": "C",
+              "Text": "Assign tags to the virtual machines."
+            },
+            {
+              "Alphabet": "D",
+              "Text": "Modify the settings of the virtual machines."
+            }
+          ],
+          "Explanation": "Since managers need to work from one single screen and already use the Dynamics 365 Field Service mobile app to view scheduled assignments, adding the manager Power BI dashboard to the same Field Service mobile app would allow them to access both the real-time maintenance data and the Field Service data in one place. This integration provides a seamless experience for managers, allowing them to access all the necessary information from a single screen."
+        },
+        {
+          "No": 1,
+          "Text": "Note: The question is included in a number of questions that depicts the identical set-up. However, every question has a distinctive result. Establish if the solution satisfies the requirements.<br>Your company has an Azure Active Directory (Azure AD) subscription.<br>You want to implement an Azure AD conditional access policy.<br>The policy must be configured to require members of the Global Administrators group to use Multi-Factor Authentication and an Azure AD-joined device when they connect to Azure AD from untrusted locations.<br>Solution: You access the multi-factor authentication page to alter the user settings.<br>Does the solution meet the goal?",
+          "Image": null,
+          "Answer": "B",
+          "IsMultipleChoice": false,
+          "Answers": null,
+          "Options": [
+            {
+              "Alphabet": "A",
+              "Text": "Yes"
+            },
+            {
+              "Alphabet": "B",
+              "Text": "No"
+            }
+          ],
+          "Explanation": "Since managers need to work from one single screen and already use the Dynamics 365 Field Service mobile app to view scheduled assignments, adding the manager Power BI dashboard to the same Field Service mobile app would allow them to access both the real-time maintenance data and the Field Service data in one place. This integration provides a seamless experience for managers, allowing them to access all the necessary information from a single screen."
+        },       
+        {
+          "No": 2,
+          "Type": "DropdownInText",
+          "Text": "You work for a staffing company that helps employees fill temporary jobs. Available temporary jobs are categorized and listed on a secure area of the company's website.The company wants to eliminate manual work that relates to job and candidate management. <br>The company plans to invite employers with available jobs and job candidates to view jobs by sending personalized invitations. <br>The company identifies the following requirements:<br><br>✑ Human resources team members from the staffing company must be able to access the jobs listing and post available positions.<br>✑ Employers seeking temporary employees must also be able to access the jobs listing and post available positions.<br>✑ Approved job candidates must be notified about new positions for which they are qualified.<br>✑ Approved job candidate must have an option to accept a job assignment directly from a notification.You need to perform a gap analysis against the features and capabilities of the Power Platform. Which features should you implement? <br><br>To answer, select the appropriate options in the answer area.",
+          "Answer": ["main.aspx", "etn", "extraqs", "entityrecord"],
+          "Dropdowns": [
+            {
+              "Placeholder": "{dropdown1}",
+              "Options": ["Customer self-service portal for employers and a custom page for job candidates.", "Custom self-service portal for both employers and job candidates.","Portal for job candidates and a custom self-service portal for employers.", "Portal from blank for job canditates and employers"]
+            },
+            {
+              "Placeholder": "{dropdown2}",
+              "Options": ["Canvas app with push notifications", "Model-driven app with push notifications", "Portal app with push notifications"]
+            },
+            {
+              "Placeholder": "{dropdown3}",
+              "Options": ["Entity from defined on the job custom entity", "Webform with target set to the job custom entity", "Web page defined on the job custom entity", "Web step with target set to the job custom entity"]
+            },
+            {
+              "Placeholder": "{dropdown4}",
+              "Options": ["Configure a value for the Assigned to Account option only.", "Configure a value for the Execute Workflow on Redeeming Contact option only", "Configure values for Assigned to Account and Execute Workflow on Redeeming Contact.", "Leave both Assigned to Account and Execute Workflow on Redeeming Contact empty."]
+            },
+            {
+              "Placeholder": "{dropdown5}",
+              "Options": ["Configure a value for the Assigned to Account option only.","Configure a value for the Execute Workflow on Redeeming Contact option only.","Configure values for Assigned to Account and Execute Workflow on Redeeming Contact.", "Leave both Assigned to Account and Execute Workflow on Redeeming Contact empty."]
+            }
+          ],
+          "Template": "Create the job listings portal: {dropdown1} <br> Create an app that lists available positions: {dropdown2} <br> Create the app for employers who are seeking temporary employees: {dropdown3} <br> Create invitation paramaters for job candidates: {dropdown4} <br> Create invitation paramaters for approved job candidates: {dropdown5}",
+          "Explanation" : "These are the correct answers"
+        },
+        {
+            "No": 3,
+            "Type": "SortList",
+            "Text": "You are creating a model-driven app for users to submit and manage budgets for projects. You must create a business process flow to ensure any lead with a budget over $10,000 requires approval by a manager. You must add a custom control that allows users to select the estimated budget cost for a project. You need to add the control to the business process flow. In which order should you perform the actions? To answer, arrange the items in the list below into the correct order.",
+            "Options": [
+                "Paste control description FormXML into the correct stage of the business process flow in the exported solution.",
+                "Export the business process flow and the Lead form as two separate solutions.",
+                "Add a control to the Lead form by using the form designer.",
+                "Import the solution into the system and publish.",
+                "Copy all control description FormXML from the Lead form of the exported solution."
+            ],
+            "CorrectOrder": [
+                "Add a control to the Lead form by using the form designer.",
+                "Export the business process flow and the Lead form as two separate solutions.",
+                "Copy all control description FormXML from the Lead form of the exported solution.",
+                "Paste control description FormXML into the correct stage of the business process flow in the exported solution.",
+                "Import the solution into the system and publish."
+            ],
+            "Explanation": "You should first add a control to the Lead form using the form designer. Then, export the business process flow and the Lead form as two separate solutions. After that, copy all control description FormXML from the Lead form of the exported solution. Paste this FormXML into the correct stage of the business process flow in the exported solution. Finally, import the solution into the system and publish."
+        },
+
+        {
+          "No": 4,
+          "Text": "Note: The question is included in a number of questions that depicts the identical set-up. However, every question has a distinctive result. Establish if the solution satisfies the requirements.<br>Your company has an Azure Active Directory (Azure AD) subscription.<br>You want to implement an Azure AD conditional access policy.<br>The policy must be configured to require members of the Global Administrators group to use Multi-Factor Authentication and an Azure AD-joined device when they connect to Azure AD from untrusted locations.<br>Solution: You access the multi-factor authentication page to alter the user settings.<br>Does the solution meet the goal?",
+          "Image": null,
+          "Answer": "B",
+          "IsMultipleChoice": false,
+          "Answers": null,
+          "Options": [
+            {
+              "Alphabet": "A",
+              "Text": "Yes"
+            },
+            {
+              "Alphabet": "B",
+              "Text": "No"
+            }
+          ],
+          "Explanation": "Since managers need to work from one single screen and already use the Dynamics 365 Field Service mobile app to view scheduled assignments, adding the manager Power BI dashboard to the same Field Service mobile app would allow them to access both the real-time maintenance data and the Field Service data in one place. This integration provides a seamless experience for managers, allowing them to access all the necessary information from a single screen."
+        }
+      ]
+    }
+  ]
+}
