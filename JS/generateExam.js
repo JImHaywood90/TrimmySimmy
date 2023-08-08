@@ -77,13 +77,13 @@ function UpdateQuestionDisplay() {
 }
 
 $(document).ready(() => {
-    new Darkmode().showWidget();
     loadAvailableExams();
     UpdateQuestionDisplay();
     // Check if the questions array is empty or has questions
     const hasQuestions = questions && questions.length > 0;
 
     $("#smartwizard").smartWizard({
+      transitionEffect:'slide',
       theme: 'arrows', // theme for the wizard, related css need to include for other than default theme
       justified: true, // Nav menu justification. true/false
       autoAdjustHeight: true,
