@@ -65,6 +65,7 @@ function UpdateQuestionDisplay() {
 }
 
 $(document).ready(() => {
+    new Darkmode().showWidget();
     loadAvailableExams();
     UpdateQuestionDisplay();
     // Check if the questions array is empty or has questions
