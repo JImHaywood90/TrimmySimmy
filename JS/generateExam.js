@@ -84,7 +84,7 @@ $(document).ready(() => {
 
     $("#smartwizard").smartWizard({
       transitionEffect:'slide',
-      theme: 'arrows', // theme for the wizard, related css need to include for other than default theme
+      theme: 'default', // theme for the wizard, related css need to include for other than default theme
       justified: true, // Nav menu justification. true/false
       autoAdjustHeight: true,
       selected: 0, // Set default step to 0 (step 1)
@@ -92,6 +92,11 @@ $(document).ready(() => {
       // Other SmartWizard configuration...
       disabledSteps: hasQuestions ? [] : [1, 2, 3], // Enable or disable steps based on the questions array
     });
+    
+    timeout = setTimeout(function() {
+        $('#smartwizard').smartWizard("theme", "arrows");
+    }, 250); // Adjust the delay as needed
+    
 
     // Handle URL hash change manually and update the step
     $(window).on("hashchange", function (event) {
