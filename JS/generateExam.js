@@ -736,7 +736,7 @@ function saveOptions() {
     optionSpan.onclick = function() { addCorrectOrderOption(option); };
     availableOptionsContainer.appendChild(optionSpan);
   }
-
+  $('#SaveDADOptions').hide();
   // Fix the content height of the current step
   $('#smartwizard').smartWizard('fixHeight');
 }
@@ -827,7 +827,7 @@ function generateOptions() {
     optionsContainer.appendChild(optionDiv);
     generatedOptions.push(input); // Store the generated input in the array
   }
-
+  $('#SaveDADOptions').show();
   // Fix the content height of the current step
   $('#smartwizard').smartWizard('fixHeight');
 }

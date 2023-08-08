@@ -193,12 +193,12 @@
                             <!-- Available options will be added here -->
                         </div>
                         </div>
-                        <button type="button" onclick="saveOptions()">Save Options</button>
+                        <button id="SaveDADOptions" type="button" onclick="saveOptions()" class="hidden">Save Options</button>
                         <div id="CorrectOrderDAD" class="hidden">
                         <label>Correct Order:</label><br>
                         <div id="correctOrderContainer" class="visible"></div><br>
                         </div>
-                        <label for="dragAndDropExplanationText">Explanation:</label><br>
+                        <br><label for="dragAndDropExplanationText">Explanation:</label><br>
                         <textarea id="dragAndDropExplanationText" name="dragAndDropExplanationText" rows="4" cols="50"></textarea><br><br>
 
                         <button type="button" class="custom-btn" onclick="saveDragAndDropQuestion()">Save and Add More</button>
