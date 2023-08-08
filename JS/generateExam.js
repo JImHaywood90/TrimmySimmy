@@ -16,6 +16,7 @@ document.addEventListener('keydown', function(event) {
         // Check if the key pressed is an arrow key
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             // Stop the event from propagating further
+            console.log("stopping arrow key propogation");
             event.stopPropagation();
         }
     }
