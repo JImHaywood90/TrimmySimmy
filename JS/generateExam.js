@@ -1357,7 +1357,6 @@ function initTinyMCE(selector) {
             });
         }
     });
-    $('#smartwizard').smartWizard("fixHeight");
 }
 
 function GenerateDragAndDrop(){
@@ -1366,11 +1365,12 @@ function GenerateDragAndDrop(){
     $('#GenerateDropdown').hide();    
     $('#GenerateMultipleAnswer').hide();
     $('#GenerateDragAndDrop').show();
-    $('#smartwizard').smartWizard("fixHeight");
-
-    // Configuration for TinyMCE
     initTinyMCE('#dragAndDropExplanationText');
     initTinyMCE('#dragAndDropQuestionText'); 
+    timeout = setTimeout(function() {
+        console.log("Fixing smart wizard height");
+        $("#smartwizard").smartWizard("fixHeight");
+    }, 200); // Adjust the delay as needed
 }
 
 function GenerateMultipleAnswer(){
@@ -1379,9 +1379,12 @@ function GenerateMultipleAnswer(){
     $('#GenerateDragAndDrop').hide();
     $('#GenerateSortList').hide();
     $('#GenerateDropdown').hide();
-    $('#smartwizard').smartWizard("fixHeight");
     initTinyMCE('#multipleQuestionText');
     initTinyMCE('#MultipleAnswerExplanationText');
+    timeout = setTimeout(function() {
+        console.log("Fixing smart wizard height");
+        $("#smartwizard").smartWizard("fixHeight");
+    }, 200); // Adjust the delay as needed
 }
 function GenerateSingleAnswer(){
     $('#GenerateSingleAnswer').show();
@@ -1389,9 +1392,12 @@ function GenerateSingleAnswer(){
     $('#GenerateDragAndDrop').hide();
     $('#GenerateSortList').hide();
     $('#GenerateDropdown').hide();
-    $('#smartwizard').smartWizard("fixHeight");
     initTinyMCE('#questionText');
     initTinyMCE('#explanationText');
+    timeout = setTimeout(function() {
+        console.log("Fixing smart wizard height");
+        $("#smartwizard").smartWizard("fixHeight");
+    }, 200); // Adjust the delay as needed
 }
 function GenerateDropdown(){
     $('#GenerateSingleAnswer').hide();
@@ -1399,9 +1405,12 @@ function GenerateDropdown(){
     $('#GenerateSortList').hide();
     $('#GenerateDragAndDrop').hide();
     $('#GenerateDropdown').show();
-    $('#smartwizard').smartWizard("fixHeight");
     initTinyMCE('#dropdownQuestionText');
     initTinyMCE('#dropdownExplanationText');
+    timeout = setTimeout(function() {
+        console.log("Fixing smart wizard height");
+        $("#smartwizard").smartWizard("fixHeight");
+    }, 200); // Adjust the delay as needed
 }
 function GenerateSortList(){
     $('#GenerateSingleAnswer').hide();
@@ -1409,9 +1418,12 @@ function GenerateSortList(){
     $('#GenerateDragAndDrop').hide();
     $('#GenerateDropdown').hide();
     $('#GenerateSortList').show();
-    $('#smartwizard').smartWizard("fixHeight");
     initTinyMCE('#sortListQuestionText');
     initTinyMCE('#sortListExplanationText'); 
+    timeout = setTimeout(function() {
+        console.log("Fixing smart wizard height");
+        $("#smartwizard").smartWizard("fixHeight");
+    }, 200); // Adjust the delay as needed
 }
 
 
