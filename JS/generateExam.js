@@ -940,8 +940,8 @@ function addChoice(buttonElement) {
 }
 
 function saveDropdownQuestion(hideContainer) {
-    var questionText = tinymce.activeEditor.getContent();
-    var explanationText = $('#dropdownExplanationText').val();
+    var questionHTML = tinymce.get('dropdownQuestionText').getContent();
+    var explanationHTML = tinymce.get('dropdownExplanationText').getContent();
 
     var options = [];
 
@@ -1004,7 +1004,8 @@ function saveDropdownQuestion(hideContainer) {
     }
     
     console.log("Dropdown Question saved:", question);
-    tinymce.activeEditor.setContent('');
+    tinymce.get('dropdownQuestionText').setContent('');
+    tinymce.get('dropdownExplanationText').setContent('');
     $('#dropdownExplanationText').val('');
     $('#dropdownOptionsContainer').empty();
     optionCount = 0;
@@ -1033,8 +1034,8 @@ function GenerateSortList() {
 }
 
 function saveSortListQuestion(hideContainer) {
-    var questionText = tinymce.activeEditor.getContent();
-    var explanationText = $('#sortListExplanationText').val();
+    var questionHTML = tinymce.get('sortListQuestionText').getContent();
+    var explanationHTML = tinymce.get('sortListExplanationText').getContent();
 
     var correctOrder = [];
     $('.sortListOption').each(function() {
@@ -1080,7 +1081,8 @@ function saveSortListQuestion(hideContainer) {
     }
     console.log("SortList Question saved:", question);
     
-    tinymce.activeEditor.setContent('');
+    tinymce.get('sortListQuestionText').setContent('');
+    tinymce.get('sortListExplanationText').setContent('');
     $('#sortListExplanationText').val('');
     $('#sortListOptionsContainer').empty();
     optionCount = 0;
@@ -1120,8 +1122,8 @@ function addMultipleOption() {
 
 
 function saveMultipleQuestion(hideContainer) {
-    var questionText = tinymce.activeEditor.getContent();
-    var explanationText = $('#MultipleAnswerExplanationText').val();
+    var questionHTML = tinymce.get('multipleQuestionText').getContent();
+    var explanationHTML = tinymce.get('MultipleAnswerExplanationText').getContent();
     var correctOptions = [];
 
     // Gather the selected checkboxes and get the option letter from the options array
@@ -1181,7 +1183,8 @@ function saveMultipleQuestion(hideContainer) {
     console.log("Question saved:", question);
 
     tinymce.activeEditor.setContent(''); // Clear question text
-    $('#explanationText').val(''); // Clear explanation text
+    var questionHTML = tinymce.get('multipleQuestionText').getContent();
+    var explanationHTML = tinymce.get('MultipleAnswerExplanationText').getContent();
     $('input[name="correctOption"]:checked').prop('checked', false); // Uncheck checkboxes
     $('#multipleOptionsContainer').empty(); // Remove all option inputs
     multipleOptionCount = 0;
@@ -1234,8 +1237,9 @@ function saveQuestion(hideContainer) {
 //    var questionText = $('#questionText').val();
 //    questionText = addBreaksBeforeLastQuestion(questionText);
 //    questionText = addBreaksToQuestionText(questionText);
-    var questionText = tinymce.get('questionText').getContent();
-    var explanationText = $('#explanationText').val();
+    var questionHTML = tinymce.get('questionText').getContent();
+    var explanationHTML = tinymce.get('explanationText').getContent();
+
     var correctOption = $('input[name="correctOption"]:checked').val().substring(6); // Get the letter from the selected radio box
     console.log("selected answer is " + correctOption);
     var options = [];
@@ -1288,9 +1292,8 @@ function saveQuestion(hideContainer) {
     
     console.log("Question saved:", question);
 
-    
-    tinymce.activeEditor.setContent(''); // Clear question text
-    $('#explanationText').val(''); // Clear explanation text
+    tinymce.get('questionText').setContent('');
+    tinymce.get('explanationText').setContent('');
     $('input[name="correctOption"]:checked').prop('checked', false); // Uncheck radio buttons
     $('#optionsContainer').empty(); // Remove all option inputs
     $('#questionType').val('');
