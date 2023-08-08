@@ -973,9 +973,9 @@ function saveDropdownQuestion(hideContainer) {
     var question = {
         No: questions.length + 1,
         Type: "Dropdown",
-        Text: questionText,
+        Text: questionHTML,
         Options: options,
-        Explanation: explanationText
+        Explanation: explanationHTML
     };
 
     // Check the initial length of the questions array 
@@ -1049,10 +1049,10 @@ function saveSortListQuestion(hideContainer) {
     var question = {
         No: questions.length + 1,
         Type: "SortList",
-        Text: questionText,
+        Text: questionHTML,
         Options: options,
         CorrectOrder: correctOrder,
-        Explanation: explanationText
+        Explanation: explanationHTML
     };
 
     // Check the initial length of the questions array 
@@ -1145,14 +1145,14 @@ function saveMultipleQuestion(hideContainer) {
     // Create question object
     var question = {
         No: questions.length + 1, // Incremented by 1 since the array is 0-indexed
-        Text: questionText,
+        Text: questionHTML,
         Type: "MultipleAnswer",
         Image: null,
         Answer: "\u0000",
         IsMultipleAnswer: true,
         Answers: correctOptions,
         Options: options,
-        Explanation: explanationText
+        Explanation: explanationHTML
     };
 
     // Check the initial length of the questions array 
@@ -1207,12 +1207,12 @@ function renderSingleAnswerForm(question) {
 
   // Create HTML elements for editing
   var questionText = $('<input type="text" id="editQuestionText" value="' + question.Text + '">');
-  var explanationText = $('<input type="text" id="editExplanationText" value="' + question.Explanation + '">');
+  var explanationHTML = $('<input type="text" id="editExplanationText" value="' + question.Explanation + '">');
   
   container.append('<label for="editQuestionText">Question Text:</label>');
   container.append(questionText);
   container.append('<label for="editExplanationText">Explanation Text:</label>');
-  container.append(explanationText);
+  container.append(explanationHTML);
   
   // Iterate through the options and create input fields for them
   var optionsContainer = $('<div id="editOptionsContainer"></div>');
@@ -1234,9 +1234,9 @@ function renderSingleAnswerForm(question) {
 }
 
 function saveQuestion(hideContainer) {
-//    var questionText = $('#questionText').val();
-//    questionText = addBreaksBeforeLastQuestion(questionText);
-//    questionText = addBreaksToQuestionText(questionText);
+//    var questionHTML = $('#questionHTML').val();
+//    questionHTML = addBreaksBeforeLastQuestion(questionHTML);
+//    questionHTML = addBreaksToQuestionText(questionHTML);
     var questionHTML = tinymce.get('questionText').getContent();
     var explanationHTML = tinymce.get('explanationText').getContent();
 
@@ -1255,14 +1255,14 @@ function saveQuestion(hideContainer) {
     // Create question object
     var question = {
         No: questions.length + 1, // Incremented by 1 since array is 0-indexed
-        Text: questionText,
+        Text: questionHTML,
         Type: "SingleAnswer",
         Image: null,
         Answer: correctOption,
         IsMultipleAnswer: false,
         Answers: null,
         Options: options,
-        Explanation: explanationText
+        Explanation: explanationHTML
     };
 
     // Check the initial length of the questions array 
