@@ -756,8 +756,8 @@ function saveOptions() {
 
 
 function saveDragAndDropQuestion(hideContainer) {
-    var questionHTML = tinymce.get('#dragAndDropQuestionText').getContent();
-    var explanationHTML = tinymce.get('#dragAndDropExplanationText').getContent();
+    var questionHTML = tinymce.get('dragAndDropQuestionText').getContent();
+    var explanationHTML = tinymce.get('dragAndDropExplanationText').getContent();
     var availableOptions = [];
     $('#AvailableOptionsDAD span').each(function() {
         availableOptions.push($(this).text());
@@ -809,8 +809,8 @@ function saveDragAndDropQuestion(hideContainer) {
     console.log("Drag And Drop Question saved:", question);
 
     $('#dragAndDropQuestionText').val('');
-    tinymce.get('#dragAndDropQuestionText').setContent('');
-    tinymce.get('#dragAndDropExplanationText').setContent('');
+    tinymce.get('dragAndDropQuestionText').setContent('');
+    tinymce.get('dragAndDropExplanationText').setContent('');
     $('#requiredOptions').val('');
     $('#dragAndDropOptionsContainer').empty();
     $('#correctOrderContainer').empty();
