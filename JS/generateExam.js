@@ -1357,6 +1357,7 @@ function initTinyMCE(selector) {
             });
         }
     });
+    $('#smartwizard').smartWizard("fixHeight");
 }
 
 function GenerateDragAndDrop(){
