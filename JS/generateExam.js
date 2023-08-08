@@ -1340,6 +1340,25 @@ function callGenerateFunction(selectedValue) {
     }
 }
 
+function initTinyMCE(selector) {
+    tinymce.init({
+        selector: selector,
+        valid_styles: {
+            '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
+        },
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+        menubar: false,
+        plugins: 'autoresize',
+        autoresize_min_height: 100,
+        autoresize_max_height: 500,
+        init_instance_callback: function (editor) {
+            editor.on('ResizeEditor', function (e) {
+                $('#smartwizard').smartWizard("fixHeight");
+            });
+        }
+    });
+}
+
 function GenerateDragAndDrop(){
     $('#GenerateSortList').hide();
     $('#GenerateSingleAnswer').hide();
@@ -1349,31 +1368,9 @@ function GenerateDragAndDrop(){
     $('#smartwizard').smartWizard("fixHeight");
 
     // Configuration for TinyMCE
-    var tinyMCEConfig = {
-      valid_styles: {
-        '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
-      },
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
-      menubar: false,
-      plugins: 'autoresize',
-      autoresize_min_height: 100,
-      autoresize_max_height: 500,
-      init_instance_callback: function (editor) {
-        editor.on('ResizeEditor', function (e) {
-          $('#smartwizard').smartWizard("fixHeight");
-        });
-      }
-    };
-
-    // Initialize TinyMCE for the question field
-    tinyMCEConfig.selector = '#dragAndDropQuestionText';
-    tinymce.init(tinyMCEConfig);
-
-    // Initialize TinyMCE for the explanation field (assuming its ID is 'dragAndDropExplanationText')
-    tinyMCEConfig.selector = '#dragAndDropExplanationText';
-    tinymce.init(tinyMCEConfig);
+    initTinyMCE('#dragAndDropExplanationText');
+    initTinyMCE('#dragAndDropQuestionText'); 
 }
-
 
 function GenerateMultipleAnswer(){
     $('#GenerateSingleAnswer').hide();
@@ -1382,23 +1379,8 @@ function GenerateMultipleAnswer(){
     $('#GenerateSortList').hide();
     $('#GenerateDropdown').hide();
     $('#smartwizard').smartWizard("fixHeight");
-    tinymce.init({
-      selector: '#multipleQuestionText',
-      valid_styles: {
-        '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
-      },
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
-      menubar: false,
-      plugins: 'autoresize',
-      // optional: set minimum and maximum heights
-      autoresize_min_height: 100,
-      autoresize_max_height: 500,
-      init_instance_callback: function (editor) {
-        editor.on('ResizeEditor', function (e) {
-          $('#smartwizard').smartWizard("fixHeight");
-        });
-      }
-    });
+    initTinyMCE('#multipleQuestionText');
+    initTinyMCE('#MultipleAnswerExplanationText');
 }
 function GenerateSingleAnswer(){
     $('#GenerateSingleAnswer').show();
@@ -1407,23 +1389,8 @@ function GenerateSingleAnswer(){
     $('#GenerateSortList').hide();
     $('#GenerateDropdown').hide();
     $('#smartwizard').smartWizard("fixHeight");
-    tinymce.init({
-      selector: '#questionText',
-      valid_styles: {
-        '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
-      },
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
-      menubar: false,
-      plugins: 'autoresize',
-      // optional: set minimum and maximum heights
-      autoresize_min_height: 100,
-      autoresize_max_height: 500,
-      init_instance_callback: function (editor) {
-        editor.on('ResizeEditor', function (e) {
-          $('#smartwizard').smartWizard("fixHeight");
-        });
-      }
-    });
+    initTinyMCE('#questionText');
+    initTinyMCE('#explanationText');
 }
 function GenerateDropdown(){
     $('#GenerateSingleAnswer').hide();
@@ -1432,23 +1399,8 @@ function GenerateDropdown(){
     $('#GenerateDragAndDrop').hide();
     $('#GenerateDropdown').show();
     $('#smartwizard').smartWizard("fixHeight");
-    tinymce.init({
-      selector: '#dropdownQuestionText',
-      valid_styles: {
-        '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
-      },
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
-      menubar: false,
-      plugins: 'autoresize',
-      // optional: set minimum and maximum heights
-      autoresize_min_height: 100,
-      autoresize_max_height: 500,
-      init_instance_callback: function (editor) {
-        editor.on('ResizeEditor', function (e) {
-          $('#smartwizard').smartWizard("fixHeight");
-        });
-      }
-    });
+    initTinyMCE('#dropdownQuestionText');
+    initTinyMCE('#dropdownExplanationText');
 }
 function GenerateSortList(){
     $('#GenerateSingleAnswer').hide();
@@ -1457,23 +1409,8 @@ function GenerateSortList(){
     $('#GenerateDropdown').hide();
     $('#GenerateSortList').show();
     $('#smartwizard').smartWizard("fixHeight");
-    tinymce.init({
-      selector: '#sortListQuestionText',
-      valid_styles: {
-        '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
-      },
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
-      menubar: false,
-      plugins: 'autoresize',
-      // optional: set minimum and maximum heights
-      autoresize_min_height: 100,
-      autoresize_max_height: 500,
-      init_instance_callback: function (editor) {
-        editor.on('ResizeEditor', function (e) {
-          $('#smartwizard').smartWizard("fixHeight");
-        });
-      }
-    });
+    initTinyMCE('#sortListQuestionText');
+    initTinyMCE('#sortListExplanationText'); 
 }
 
 
