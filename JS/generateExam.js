@@ -10,6 +10,17 @@ var examJSON;
 var dataTable;
 var dynamicColumns = [];
 
+document.addEventListener('keydown', function(event) {
+    // Check if the event target is an input or textarea
+    if (event.target.tagName.toLowerCase() === 'input' || event.target.tagName.toLowerCase() === 'textarea') {
+        // Check if the key pressed is an arrow key
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            // Stop the event from propagating further
+            event.stopPropagation();
+        }
+    }
+});
+
 function updateImage() {
     var certLevel = parseInt(document.getElementById('certLevel').value);
     var certLevelImage;

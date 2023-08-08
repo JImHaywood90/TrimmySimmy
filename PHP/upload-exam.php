@@ -36,16 +36,17 @@ if ($_SERVER['CONTENT_TYPE'] == 'application/json') {
 
         // Check if the file already exists
         if (file_exists($filePath)) {
-            // Create the archive directory name with the current date
-            $archive_directory = $dir . "/_Archive" . date('Ymd');
+            // Create the archive directory name
+            $archive_directory = $dir . "/_Archive";
 
             // Check if the archive directory exists, if not, create it
             if (!file_exists($archive_directory)) {
                 mkdir($archive_directory, 0777, true);
             }
 
-            // Move the existing file to the archive directory
-            $archive_file = $archive_directory . "/" . $fileName;
+            // Rename the existing file with datetime prefix
+            $datetime_prefix = date('YmdHis'); // Format: YYYYMMDDHHMMSS
+            $archive_file = $archive_directory . "/" . $datetime_prefix . $fileName;
             rename($filePath, $archive_file);
         }
 
