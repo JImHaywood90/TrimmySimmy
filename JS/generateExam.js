@@ -84,6 +84,9 @@ $(document).ready(() => {
     const hasQuestions = questions && questions.length > 0;
 
     $("#smartwizard").smartWizard({
+      theme: 'arrows', // theme for the wizard, related css need to include for other than default theme
+      justified: true, // Nav menu justification. true/false
+      autoAdjustHeight: true,
       selected: 0, // Set default step to 0 (step 1)
       hashNavigation: false, // Disable hash navigation
       // Other SmartWizard configuration...
