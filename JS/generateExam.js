@@ -83,13 +83,12 @@ $(document).ready(() => {
     const hasQuestions = questions && questions.length > 0;
 
     $("#smartwizard").smartWizard({
-      transitionEffect:'slide',
-      theme: 'default', // theme for the wizard, related css need to include for other than default theme
+      transitionEffect:'fade',
+      theme: 'arrows', // theme for the wizard, related css need to include for other than default theme
       justified: true, // Nav menu justification. true/false
       autoAdjustHeight: true,
       selected: 0, // Set default step to 0 (step 1)
       hashNavigation: false, // Disable hash navigation
-      // Other SmartWizard configuration...
       disabledSteps: hasQuestions ? [] : [1, 2, 3], // Enable or disable steps based on the questions array
     });
     
