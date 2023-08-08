@@ -756,8 +756,8 @@ function saveOptions() {
 
 
 function saveDragAndDropQuestion(hideContainer) {
-    var questionText = tinymce.activeEditor.getContent();
-    var explanationText = $('#dragAndDropExplanationText').val();
+    var questionHTML = tinymce.get('#dragAndDropQuestionText').getContent();
+    var explanationHTML = tinymce.get('#dragAndDropExplanationText').getContent();
     var availableOptions = [];
     $('#AvailableOptionsDAD span').each(function() {
         availableOptions.push($(this).text());
@@ -772,10 +772,10 @@ function saveDragAndDropQuestion(hideContainer) {
     // Create question object
     var question = {
         No: questions.length + 1,
-        Text: questionText,
+        Text: questionHTML,
         Type: 'DragAndDrop',
         Options: availableOptions,
-        Explanation: explanationText,
+        Explanation: explanationHTML,
         RequiredOptions: correctOrder.length,
         CorrectOrder: correctOrder // Add the correct order to the question object
     };
@@ -809,7 +809,8 @@ function saveDragAndDropQuestion(hideContainer) {
     console.log("Drag And Drop Question saved:", question);
 
     $('#dragAndDropQuestionText').val('');
-    tinymce.activeEditor.setContent('');
+    tinymce.get('#dragAndDropQuestionText').setContent('');
+    tinymce.get('#dragAndDropExplanationText').setContent('');
     $('#requiredOptions').val('');
     $('#dragAndDropOptionsContainer').empty();
     $('#correctOrderContainer').empty();
@@ -1343,15 +1344,15 @@ function GenerateDragAndDrop(){
     $('#GenerateMultipleAnswer').hide();
     $('#GenerateDragAndDrop').show();
     $('#smartwizard').smartWizard("fixHeight");
-    tinymce.init({
-      selector: '#dragAndDropQuestionText',
+
+    // Configuration for TinyMCE
+    var tinyMCEConfig = {
       valid_styles: {
         '*': 'text-align,font-size,font-weight,font-family,text-decoration' // Exclude color-related styles
       },
       toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
       menubar: false,
       plugins: 'autoresize',
-      // optional: set minimum and maximum heights
       autoresize_min_height: 100,
       autoresize_max_height: 500,
       init_instance_callback: function (editor) {
@@ -1359,8 +1360,18 @@ function GenerateDragAndDrop(){
           $('#smartwizard').smartWizard("fixHeight");
         });
       }
-    });
+    };
+
+    // Initialize TinyMCE for the question field
+    tinyMCEConfig.selector = '#dragAndDropQuestionText';
+    tinymce.init(tinyMCEConfig);
+
+    // Initialize TinyMCE for the explanation field (assuming its ID is 'dragAndDropExplanationText')
+    tinyMCEConfig.selector = '#dragAndDropExplanationText';
+    tinymce.init(tinyMCEConfig);
 }
+
+
 function GenerateMultipleAnswer(){
     $('#GenerateSingleAnswer').hide();
     $('#GenerateMultipleAnswer').show();

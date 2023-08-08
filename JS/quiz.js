@@ -640,7 +640,7 @@ function displayQuestion() {
     let question = allQuestions[timelineIndex];
     $('#explanation').empty();
     if (question && question.Explanation) {
-        $('#explanation').append(`<p>${question.Explanation}</p>`);
+        $('#explanation').html(question.Explanation);
     } else {
         $('#explanation').append(`<p>No explanation provided.</p>`);
     }
@@ -788,7 +788,7 @@ $('#reveal').click(function() {
             $(`label[for="option-${question.Answer}"]`).css('border-radius', '20px');
         }
         if (question.Explanation) {
-            $('#explanation').text(question.Explanation).css('display', 'block');
+            $('#explanation').html(question.Explanation).css('display', 'block');
         }
         $(this).text('Hide Answer');
     } else {
