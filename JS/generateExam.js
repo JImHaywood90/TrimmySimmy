@@ -56,6 +56,32 @@ function splitMultipleOptions() {
     $('#smartwizard').smartWizard("fixHeight");
 }
 
+function addMultipleOption(optionLetter, optionText) {
+    const optionsContainer = document.getElementById('multipleOptionsContainer');
+
+    if (multipleOptionCount >= alphabet.length) {
+        alert('You have reached the maximum number of options.');
+        return;
+    }
+
+    // Add option text input and checkbox to indicate the correct answer
+    const optionDiv = document.createElement('div');
+    optionDiv.innerHTML = `
+        <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" value="option${optionLetter}">
+        <label for="multipleOption${optionLetter}Text">${optionLetter}. </label>
+        <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
+        <br>
+    `;
+    optionsContainer.appendChild(optionDiv);
+
+    // Increment the multipleOptionCount variable
+    multipleOptionCount++;
+
+    // Fix the content height of the current step
+    $('#smartwizard').smartWizard("fixHeight");
+}
+
+
 
 function updateImage() {
     var certLevel = parseInt(document.getElementById('certLevel').value);
