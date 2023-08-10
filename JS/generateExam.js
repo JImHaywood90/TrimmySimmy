@@ -1160,29 +1160,29 @@ function saveSortListQuestion(hideContainer) {
 }
 
 function splitMultipleOptions() {
-    var allOptionsText = $('#allOptionsText').val();
+    const allOptionsText = $('#allOptionsText').val();
+    const optionLines = allOptionsText.trim().split('\n');
 
-    if (allOptionsText.trim() === '') {
+    if (optionLines.length < 2) {
         alert('Please enter options in the specified format.');
         return;
     }
 
-    var options = allOptionsText.split('\n');
+    const optionsContainer = document.getElementById('multipleOptionsContainer');
+    optionsContainer.innerHTML = ''; // Clear previous options
 
-    // Remove empty lines and whitespace from the options array
-    options = options.filter(option => option.trim() !== '');
-
-    // Clear the options container
-    $('#multipleOptionsContainer').empty();
-
-    // Add each option to the options container
-    options.forEach((option, index) => {
-        var optionLetter = alphabet[index];
-        var optionText = option.trim().substring(2); // Remove the "A. " or "B. " prefix
-        addMultipleOption(optionLetter, optionText);
+    optionLines.forEach((line, index) => {
+        const optionLetter = alphabet[index];
+        const optionText = line.trim().substring(3); // Remove the "A. " prefix
+        const optionDiv = document.createElement('div');
+        optionDiv.innerHTML = `
+            <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" value="option${optionLetter}">
+            <label for="multipleOption${optionLetter}Text">Option ${optionLetter}:</label>
+            <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}"><br>
+        `;
+        optionsContainer.appendChild(optionDiv);
     });
 
-    // Fix the content height of the current step
     $('#smartwizard').smartWizard("fixHeight");
 }
 
