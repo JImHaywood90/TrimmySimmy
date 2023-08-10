@@ -77,10 +77,20 @@ function UpdateQuestionDisplay() {
 }
 
 function saveQuestions() {
-console.log("current exam name: " + currentExamName);
-localStorage.setItem('examState', JSON.stringify({
-    userQuestions: questions
+localStorage.setItem('questionData', JSON.stringify({
+    userQuestions: questions,
+    examDetails: examDetails
 }));   
+}
+
+function loadQuestions() {
+  let savedState = JSON.parse(localStorage.getItem('questionData'));
+  if (savedState) {
+      console.log("loading saved questions from local d")
+      questions = savedState.userQuestions;
+      examDetails = savedState.examDetails;
+  }
+    
 }
 
 $(document).ready(() => {
