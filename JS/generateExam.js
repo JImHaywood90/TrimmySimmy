@@ -40,7 +40,7 @@ function splitOptions() {
 }
 
 function splitMultipleOptions() {
-    var allOptionsText = $('#allOptionsText').val();
+    var allOptionsText = $('#allOptionsTextMultiple').val();
     var optionsLines = allOptionsText.trim().split('\n');
 
     // Remove existing options
@@ -72,7 +72,7 @@ function addMultipleOption(optionLetter, optionText) {
         <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
         <br>
     `;
-    optionsContainer.appendChild(optionDiv);
+    multipleOptionsContainer.appendChild(optionDiv);
 
     // Increment the multipleOptionCount variable
     multipleOptionCount++;
