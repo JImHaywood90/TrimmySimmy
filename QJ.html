@@ -133,11 +133,12 @@
                     </div>
                     <div id="GenerateMultipleAnswer" style="display:none;">
                         <h3>Add a New Multiple Answer Question</h3>
-
                         <label for="multipleQuestionText">Question:</label><br>
                         <textarea id="multipleQuestionText" name="multipleQuestionText" rows="4" cols="50"></textarea><br>
-
-                        <label>Add Available Options (Select the corrct answers using the checkboxes):</label><br>
+                        <label for="allOptionsText">Enter Options (one per line, format: A. Option text)</label><br>
+                        <textarea id="allOptionsText" name="allOptionsText" rows="4" cols="50"></textarea><br><br>
+                        <button type="button" class="custom-btn" onclick="splitMultipleOptions()">Split Options</button><br><br>
+                        <label>Add Available Options Manually (Select the correct awnsers using the checkboxes):</label><br>
                         <div id="multipleOptionsContainer">
                             <!-- Checkbox options will be added here -->
                         </div><br>

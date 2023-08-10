@@ -39,6 +39,22 @@ function splitOptions() {
     $('#smartwizard').smartWizard("fixHeight");
 }
 
+function splitMultipleOptions() {
+    var allOptionsText = $('#allOptionsText').val();
+    var optionsLines = allOptionsText.trim().split('\n');
+
+    // Remove existing options
+    $('#multipleOptionsContainer').empty();
+
+    // Process each line
+    optionsLines.forEach(function(line, index) {
+        var optionLetter = String.fromCharCode(65 + index); // A, B, C, ...
+        var optionText = line.substring(3); // Remove option letter and dot
+        addMultipleOption(optionLetter, optionText); // Call the modified addMultipleOption function
+    });
+
+    $('#smartwizard').smartWizard("fixHeight");
+}
 
 
 function updateImage() {
@@ -1143,30 +1159,31 @@ function saveSortListQuestion(hideContainer) {
     saveQuestions();
 }
 
-function addMultipleOption() {
+function addMultipleOption(optionLetter, optionText) {
     const optionsContainer = document.getElementById('multipleOptionsContainer');
-    const optionIndex = multipleOptionCount;
 
-    if (optionIndex >= alphabet.length) {
+    if (multipleOptionCount >= alphabet.length) {
         alert('You have reached the maximum number of options.');
         return;
     }
 
-    const optionLetter = alphabet[optionIndex];
-
     // Add option text input and checkbox to indicate the correct answer
     const optionDiv = document.createElement('div');
     optionDiv.innerHTML = `
-        <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" class="correctOption" value="option${optionLetter}">
-        <label for="multipleOption${optionLetter}Text">Option ${optionLetter}:</label>
-        <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text"><br>
+        <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" value="option${optionLetter}">
+        <label for="multipleOption${optionLetter}Text">${optionLetter}. </label>
+        <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
+        <br>
     `;
     optionsContainer.appendChild(optionDiv);
 
+    // Increment the multipleOptionCount variable
     multipleOptionCount++;
+
     // Fix the content height of the current step
     $('#smartwizard').smartWizard("fixHeight");
 }
+
 
 
 function saveMultipleQuestion(hideContainer) {
