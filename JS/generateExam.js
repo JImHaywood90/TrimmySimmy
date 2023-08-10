@@ -1159,34 +1159,6 @@ function saveSortListQuestion(hideContainer) {
     saveQuestions();
 }
 
-function splitMultipleOptions() {
-    const allOptionsText = $('#allOptionsText').val();
-    const optionLines = allOptionsText.trim().split('\n');
-
-    if (optionLines.length < 2) {
-        alert('Please enter options in the specified format.');
-        return;
-    }
-
-    const optionsContainer = document.getElementById('multipleOptionsContainer');
-    optionsContainer.innerHTML = ''; // Clear previous options
-
-    optionLines.forEach((line, index) => {
-        const optionLetter = alphabet[index];
-        const optionText = line.trim().substring(3); // Remove the "A. " prefix
-        const optionDiv = document.createElement('div');
-        optionDiv.innerHTML = `
-            <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" value="option${optionLetter}">
-            <label for="multipleOption${optionLetter}Text">Option ${optionLetter}:</label>
-            <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}"><br>
-        `;
-        optionsContainer.appendChild(optionDiv);
-    });
-
-    $('#smartwizard').smartWizard("fixHeight");
-}
-
-
 
 function saveMultipleQuestion(hideContainer) {
     var questionHTML = tinymce.get('multipleQuestionText').getContent();
