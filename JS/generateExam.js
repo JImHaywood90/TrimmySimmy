@@ -76,6 +76,13 @@ function UpdateQuestionDisplay() {
       });
 }
 
+function saveQuestions() {
+console.log("current exam name: " + currentExamName);
+localStorage.setItem('examState', JSON.stringify({
+    userQuestions: questions
+}));   
+}
+
 $(document).ready(() => {
     loadAvailableExams();
     UpdateQuestionDisplay();
@@ -829,6 +836,7 @@ function saveDragAndDropQuestion(hideContainer) {
     }
 
     UpdateQuestionDisplay();
+    saveQuestions();
 
 }
 
@@ -881,6 +889,7 @@ function deleteQuestion(question) {
           'success'
         );
       }
+      saveQuestions();
     }
   });
 }
@@ -1023,6 +1032,7 @@ function saveDropdownQuestion(hideContainer) {
     }
 
     UpdateQuestionDisplay();
+    saveQuestions();
 }
 
 function addSortListOption() {
@@ -1100,6 +1110,7 @@ function saveSortListQuestion(hideContainer) {
     }
 
     UpdateQuestionDisplay();
+    saveQuestions();
 }
 
 function addMultipleOption() {
@@ -1202,6 +1213,7 @@ function saveMultipleQuestion(hideContainer) {
     }
     
      UpdateQuestionDisplay();
+     saveQuestions();
 
 }
 
@@ -1312,6 +1324,7 @@ function saveQuestion(hideContainer) {
     }
     
     UpdateQuestionDisplay();
+    saveQuestions();
 }
 
 function addOption() {
