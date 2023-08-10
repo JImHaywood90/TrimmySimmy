@@ -121,7 +121,7 @@
                         <label for="allOptionsText">Enter all options:</label><br>
                         <textarea id="allOptionsText" name="allOptionsText" rows="4" cols="50"></textarea><br><br>
                         <button type="button" class="custom-btn" onclick="splitOptions()">Split Options</button>
-                        <button type="button" class="custom-btn" onclick="addOption()">Add Option</button><br><br>
+                        <button type="button" class="custom-btn" onclick="addOption()" disabled>Add Option</button><br><br>
                         <label>Options:</label><br>
                         <div id="optionsContainer">
                             <!-- Radio button options will be added here -->
@@ -142,7 +142,7 @@
                         <div id="multipleOptionsContainer">
                             <!-- Checkbox options will be added here -->
                         </div><br>
-                        <button type="button" class="custom-btn" onclick="addMultipleOption()">Add Option</button><br><br>
+                        <button type="button" class="custom-btn" onclick="addMultipleOption()" disabled>Add Option</button><br><br>
                         <label for="MultipleAnswerExplanationText">Explanation:</label><br>
                         <textarea id="MultipleAnswerExplanationText" name="MultipleAnswerExplanationText" rows="4" cols="50"></textarea><br><br>
                         <button type="button" class="custom-btn" onclick="saveMultipleQuestion()">Save and Add More</button>

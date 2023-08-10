@@ -22,6 +22,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+
 function splitOptions() {
     var allOptionsText = $('#allOptionsText').val();
     var optionsLines = allOptionsText.trim().split('\n');
@@ -81,6 +82,30 @@ function addMultipleOption(optionLetter, optionText) {
     $('#smartwizard').smartWizard("fixHeight");
 }
 
+function addOption(optionLetter, optionText) {
+    const optionsContainer = document.getElementById('optionsContainer');
+
+    if (optionCount >= alphabet.length) {
+        alert('You have reached the maximum number of options.');
+        return;
+    }
+
+    // Add option text input and radio button to indicate the correct answer
+    const optionDiv = document.createElement('div');
+    optionDiv.innerHTML = `
+        <input type="radio" id="option${optionLetter}" name="correctOption" value="option${optionLetter}">
+        <label for="option${optionLetter}Text">${optionLetter}. </label>
+        <input type="text" id="option${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
+        <br>
+    `;
+    optionsContainer.appendChild(optionDiv);
+
+    // Increment the optionCount variable
+    optionCount++;
+
+    // Fix the content height of the current step
+    $('#smartwizard').smartWizard("fixHeight");
+}
 
 
 function updateImage() {
@@ -1374,30 +1399,6 @@ function saveQuestion(hideContainer) {
     saveQuestions();
 }
 
-function addOption(optionLetter, optionText) {
-    const optionsContainer = document.getElementById('optionsContainer');
-
-    if (optionCount >= alphabet.length) {
-        alert('You have reached the maximum number of options.');
-        return;
-    }
-
-    // Add option text input and radio button to indicate the correct answer
-    const optionDiv = document.createElement('div');
-    optionDiv.innerHTML = `
-        <input type="radio" id="option${optionLetter}" name="correctOption" value="option${optionLetter}">
-        <label for="option${optionLetter}Text">${optionLetter}. </label>
-        <input type="text" id="option${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
-        <br>
-    `;
-    optionsContainer.appendChild(optionDiv);
-
-    // Increment the optionCount variable
-    optionCount++;
-
-    // Fix the content height of the current step
-    $('#smartwizard').smartWizard("fixHeight");
-}
 
 function callGenerateFunction(selectedValue) {
     const functionName = 'Generate' + selectedValue;
