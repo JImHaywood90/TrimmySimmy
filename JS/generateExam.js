@@ -89,6 +89,7 @@ function loadQuestions() {
       console.log("loading saved questions from local d")
       questions = savedState.userQuestions;
       examDetails = savedState.examDetails;
+      UpdateQuestionDisplay;
   }
     
 }
