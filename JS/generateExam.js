@@ -1159,26 +1159,28 @@ function saveSortListQuestion(hideContainer) {
     saveQuestions();
 }
 
-function addMultipleOption(optionLetter, optionText) {
-    const optionsContainer = document.getElementById('multipleOptionsContainer');
+function splitMultipleOptions() {
+    var allOptionsText = $('#allOptionsText').val();
 
-    if (multipleOptionCount >= alphabet.length) {
-        alert('You have reached the maximum number of options.');
+    if (allOptionsText.trim() === '') {
+        alert('Please enter options in the specified format.');
         return;
     }
 
-    // Add option text input and checkbox to indicate the correct answer
-    const optionDiv = document.createElement('div');
-    optionDiv.innerHTML = `
-        <input type="checkbox" id="multipleOption${optionLetter}" name="correctOption" value="option${optionLetter}">
-        <label for="multipleOption${optionLetter}Text">${optionLetter}. </label>
-        <input type="text" id="multipleOption${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
-        <br>
-    `;
-    optionsContainer.appendChild(optionDiv);
+    var options = allOptionsText.split('\n');
 
-    // Increment the multipleOptionCount variable
-    multipleOptionCount++;
+    // Remove empty lines and whitespace from the options array
+    options = options.filter(option => option.trim() !== '');
+
+    // Clear the options container
+    $('#multipleOptionsContainer').empty();
+
+    // Add each option to the options container
+    options.forEach((option, index) => {
+        var optionLetter = alphabet[index];
+        var optionText = option.trim().substring(2); // Remove the "A. " or "B. " prefix
+        addMultipleOption(optionLetter, optionText);
+    });
 
     // Fix the content height of the current step
     $('#smartwizard').smartWizard("fixHeight");
