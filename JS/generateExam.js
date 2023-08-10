@@ -22,6 +22,25 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+function splitOptions() {
+    var allOptionsText = $('#allOptionsText').val();
+    var optionsLines = allOptionsText.trim().split('\n');
+
+    // Remove existing options
+    $('#optionsContainer').empty();
+
+    // Process each line
+    optionsLines.forEach(function(line, index) {
+        var optionLetter = String.fromCharCode(65 + index); // A, B, C, ...
+        var optionText = line.substring(3); // Remove option letter and dot
+        addOption(optionLetter, optionText); // Call the modified addOption function
+    });
+
+    $('#smartwizard').smartWizard("fixHeight");
+}
+
+
+
 function updateImage() {
     var certLevel = parseInt(document.getElementById('certLevel').value);
     var certLevelImage;
@@ -1338,7 +1357,7 @@ function saveQuestion(hideContainer) {
     saveQuestions();
 }
 
-function addOption() {
+function addOption(optionLetter, optionText) {
     const optionsContainer = document.getElementById('optionsContainer');
 
     if (optionCount >= alphabet.length) {
@@ -1346,14 +1365,13 @@ function addOption() {
         return;
     }
 
-    const optionLetter = alphabet[optionCount]; // Use optionCount instead of optionIndex
-
     // Add option text input and radio button to indicate the correct answer
     const optionDiv = document.createElement('div');
     optionDiv.innerHTML = `
         <input type="radio" id="option${optionLetter}" name="correctOption" value="option${optionLetter}">
-        <label for="option${optionLetter}Text">Dropdown ${optionCount}</label>
-        <input type="text" id="option${optionLetter}Text" name="option${optionLetter}Text"><br>
+        <label for="option${optionLetter}Text">${optionLetter}. </label>
+        <input type="text" id="option${optionLetter}Text" name="option${optionLetter}Text" value="${optionText}">
+        <br>
     `;
     optionsContainer.appendChild(optionDiv);
 
