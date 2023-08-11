@@ -9,7 +9,7 @@ var multipleOptionCount = 0;
 var examJSON;
 var dataTable;
 var dynamicColumns = [];
-const parsedQuestion = [];
+const parsedQuestions = [];
 const parsedOptions = [];
 
 document.addEventListener('keydown', function(event) {
