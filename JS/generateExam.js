@@ -49,7 +49,7 @@ function processImageWithOCR(imageUrl) {
             // Handle the parsed data and populate your form
             const parsedQuestion = response.question;
             const parsedOptions = response.options;
-            console.log(parsedQuestion);
+            console.log(response);
             console.log(parsedOptions);
             // Populate the question and options fields in your form
             $('#questionField').val(parsedQuestion);
