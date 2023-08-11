@@ -96,9 +96,11 @@ function parseDropdownText(text) {
         if (colonIndex !== -1) {
             // Extract question text before colon
             parsedQuestion = trimmedLine.substring(0, colonIndex).trim();
+            console.log("Parsed Question: " + parsedQuestion);
         } else if (trimmedLine !== '') {
             // If line is not empty, assume it's an option and add to parsedOptions array
             parsedOptions.push(trimmedLine);
+            console.log("Parsed Option: " + trimmedLine);
         }
     }
 
@@ -124,14 +126,14 @@ $('#extractButton').on('click', function() {
             Tesseract.recognize(imagePathLocal)
                 .then(result => {
                     const extractedText = result.data.text;
-                    const { question1, options1 } = parseDropdownText(ocrResult);
+                    const { question1, options1 } = parseDropdownText(extractedText);
                     console.log(extractedText);
                 
                         Console.log("Questions:");
-                        Console.log(question1);
+                        Console.log(question);
 
                         Console.log("Options:");
-                        Console.log(options1);
+                        Console.log(options);
 
                     // Parse extractedText to generate dropdown
                     // Update the dropdownContainer with the generated dropdown
