@@ -29,6 +29,12 @@ async function performOCR(imageUrl) {
     // Extract dropdown information from OCR result using the parseDropdownText function
     const { question, options } = parseDropdownText(ocrResult);
     
+    Console.log("Questions:");
+    Console.log(question);
+    
+    Console.log("Options:");
+    Console.log(options]);
+    
     // Update your UI with extracted question and options
     document.getElementById('questionText').value = question;
     
