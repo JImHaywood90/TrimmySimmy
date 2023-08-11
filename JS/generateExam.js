@@ -103,8 +103,29 @@ $('#extractButton').on('click', function() {
     // Parse the HTML content to extract the image URL from the img tag
     const imageUrl = $(editorContent).find('img').attr('src');
 
-    // Call the processImageWithOCR function with the image URL
-    processImageWithOCR(imageUrl);
+    $.ajax({
+        url: 'PHP/process-dropdown-image.php', // Your PHP script to handle image processing
+        method: 'POST',
+        data: { imageUrl: imageUrl },
+        success: function(response) {
+            // Use Tesseract.js to process the locally saved image
+            Tesseract.recognize(response.localImageUrl)
+                .then(result => {
+                    const extractedText = result.text;
+                    console.log(extractedText);
+                    // Parse extractedText to generate dropdown
+                    // Update the dropdownContainer with the generated dropdown
+                })
+                .catch(error => {
+                    console.error('Error processing image:', error);
+                });
+        },
+        error: function(xhr, status, error) {
+            console.error('Image processing error:', error);
+        }
+    });
+    
+    
 });
 
 
