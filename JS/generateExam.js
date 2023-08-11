@@ -85,11 +85,11 @@ $('#extractButton').on('click', function() {
             Tesseract.recognize(imagePathLocal)
                 .then(result => {
                     const extractedText = result.data.text;
-                    const { question1, options1 } = parseDropdownText(extractedText);
+                    const { questions1, options1 } = parseDropdownText(extractedText);
                     console.log(extractedText);
                 
                         console.log("Questions:");
-                        console.log(question1);
+                        console.log(questions1);
 
                         console.log("Options:");
                         console.log(options1);
@@ -108,6 +108,7 @@ $('#extractButton').on('click', function() {
     
     
 });
+
 
 
 function splitOptions() {
