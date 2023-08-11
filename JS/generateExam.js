@@ -24,28 +24,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-async function performOCR(imageUrl) {
-    // Use Tessera.cat or your chosen OCR library to process the image
-    const ocrResult = await processImageWithOCR(imageUrl, { mode: 'no-cors' });
-    
-    // Extract dropdown information from OCR result using the parseDropdownText function
-    const { question, options } = parseDropdownText(ocrResult);
-    
-    console.log("Questions:");
-    callGenerateFunctiononsole.log(question);
-    
-    console.log("Options:");
-    console.log(options);
-    
-    // Update your UI with extracted question and options
-    document.getElementById('questionText').value = question;
-    
-    // Join the parsed options into a single string with line breaks
-    const optionsText = options.join('\n');
-    document.getElementById('allOptionsText').value = optionsText;
-}
-
-
 
 // Function to call the PHP script and process the OCR result
 function processImageWithOCR(imageUrl) {
@@ -63,11 +41,11 @@ function processImageWithOCR(imageUrl) {
             $('#questionField').val(parsedQuestion);
             const { question1, options1 } = parseDropdownText(ocrResult);
             
-                Console.log("Questions:");
-                Console.log(question1);
+                console.log("Questions:");
+                console.log(question1);
 
-                Console.log("Options:");
-                Console.log(options1);
+                console.log("Options:");
+                console.log(options1);
 
         },
         error: function() {
