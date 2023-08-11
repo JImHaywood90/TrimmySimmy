@@ -9,7 +9,7 @@ var multipleOptionCount = 0;
 var examJSON;
 var dataTable;
 var dynamicColumns = [];
-let parsedQuestion = '';
+const parsedQuestion = [];
 const parsedOptions = [];
 
 document.addEventListener('keydown', function(event) {
@@ -25,33 +25,46 @@ document.addEventListener('keydown', function(event) {
 });
 
 
-
 function parseDropdownText(text) {
     // Split the text into lines
     const lines = text.split('\n');
     console.log(lines);
-    // Initialize variables to store parsed question and options
+    
+    // Initialize variables to store parsed questions and options
+    let currentQuestion = '';
 
     // Iterate through each line
     for (const line of lines) {
         // Trim leading and trailing spaces
         const trimmedLine = line.trim();
         console.log(trimmedLine);
-        // Check if the line contains a colon
-        const colonIndex = trimmedLine.indexOf(':');
-        if (colonIndex !== -1) {
-            // Extract question text before colon
-            parsedQuestion = trimmedLine.substring(0, colonIndex).trim();
-            console.log("Parsed Question: " + parsedQuestion);
+        
+        // Check if the line ends with ": v"
+        if (trimmedLine.endsWith(': v')) {
+            if (currentQuestion) {
+                parsedQuestions.push(currentQuestion);
+                console.log("Parsed Question: " + currentQuestion);
+            }
+            currentQuestion = trimmedLine.substring(0, trimmedLine.length - 2).trim();
+        } else if (trimmedLine.endsWith(': x')) {
+            // If line ends with ": x", treat it as an option
+            parsedOptions.push(trimmedLine.substring(0, trimmedLine.length - 2).trim());
+            console.log("Parsed Option: " + parsedOptions[parsedOptions.length - 1]);
         } else if (trimmedLine !== '') {
-            // If line is not empty, assume it's an option and add to parsedOptions array
+            // If line is not empty and doesn't end with ": v" or ": x", treat it as an option
             parsedOptions.push(trimmedLine);
-            console.log("Parsed Option: " + trimmedLine);
+            console.log("Parsed Option: " + parsedOptions[parsedOptions.length - 1]);
         }
     }
+    
+    if (currentQuestion) {
+        parsedQuestions.push(currentQuestion);
+        console.log("Parsed Question: " + currentQuestion);
+    }
 
-    return { question1: parsedQuestion, options1: parsedOptions };
+    return { questions1: parsedQuestions, options1: parsedOptions };
 }
+
 
 // Button click event handler
 $('#extractButton').on('click', function() {
