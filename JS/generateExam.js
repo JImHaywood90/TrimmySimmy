@@ -22,6 +22,76 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+async function performOCR(imageUrl) {
+    // Use Tessera.cat or your chosen OCR library to process the image
+    const ocrResult = await processImageWithOCR(imageUrl);
+    
+    // Extract dropdown information from OCR result using the parseDropdownText function
+    const { question, options } = parseDropdownText(ocrResult);
+    
+    // Update your UI with extracted question and options
+    document.getElementById('questionText').value = question;
+    
+    // Join the parsed options into a single string with line breaks
+    const optionsText = options.join('\n');
+    document.getElementById('allOptionsText').value = optionsText;
+}
+
+async function processImageWithOCR(imageUrl) {
+    try {
+        const { data: { text } } = await Tesseract.recognize(imageUrl);
+        return text;
+    } catch (error) {
+        console.error('Error processing image with OCR:', error);
+        return ''; // Return an empty string if there's an error
+    }
+}
+
+function parseDropdownText(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+
+    // Initialize variables to store parsed question and options
+    let parsedQuestion = '';
+    const parsedOptions = [];
+
+    // Iterate through each line
+    for (const line of lines) {
+        // Trim leading and trailing spaces
+        const trimmedLine = line.trim();
+
+        // Check if the line contains a colon
+        const colonIndex = trimmedLine.indexOf(':');
+        if (colonIndex !== -1) {
+            // Extract question text before colon
+            parsedQuestion = trimmedLine.substring(0, colonIndex).trim();
+        } else if (trimmedLine !== '') {
+            // If line is not empty, assume it's an option and add to parsedOptions array
+            parsedOptions.push(trimmedLine);
+        }
+    }
+
+    return { question: parsedQuestion, options: parsedOptions };
+}
+
+// Handle button click to extract text and generate dropdown
+document.getElementById('extractTextButton').addEventListener('click', () => {
+    // Get the HTML content from TinyMCE
+    const htmlContent = tinymce.get('imageEditor').getContent();
+
+    // Parse the HTML to extract the image URL
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+    const imgTag = doc.querySelector('img');
+
+    if (imgTag) {
+        const imageUrl = imgTag.getAttribute('src');
+        // Pass imageUrl to Tessera.cat for OCR processing
+        performOCR(imageUrl);
+    } else {
+        console.log('No image found in the HTML content.');
+    }
+});
 
 function splitOptions() {
     var allOptionsText = $('#allOptionsText').val();
@@ -1474,6 +1544,7 @@ function GenerateDropdown(){
     $('#GenerateDropdown').show();
     initTinyMCE('#dropdownQuestionText');
     initTinyMCE('#dropdownExplanationText');
+    initTinyMCE('#imageEditor');
     timeout = setTimeout(function() {
         console.log("Fixing smart wizard height");
         $("#smartwizard").smartWizard("fixHeight");
