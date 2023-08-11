@@ -50,7 +50,7 @@ function parseDropdownText(text) {
         }
     }
 
-    return { question: parsedQuestion, options: parsedOptions };
+    return { question1: parsedQuestion, options1: parsedOptions };
 }
 
 // Button click event handler
