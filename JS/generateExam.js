@@ -113,7 +113,8 @@ $('#extractButton').on('click', function() {
             console.log(imagePathLocal);
             Tesseract.recognize(imagePathLocal)
                 .then(result => {
-                    const extractedText = result.text;
+                    const extractedText = result.data.text;
+                    parseDropdownText(extractedText);
                     console.log(extractedText);
                     // Parse extractedText to generate dropdown
                     // Update the dropdownContainer with the generated dropdown
