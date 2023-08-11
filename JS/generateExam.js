@@ -25,38 +25,6 @@ document.addEventListener('keydown', function(event) {
 });
 
 
-// Function to call the PHP script and process the OCR result
-function processImageWithOCR(imageUrl) {
-    $.ajax({
-        url: 'PHP/process-dropdown-image.php',
-        method: 'GET',
-        data: { imageUrl: imageUrl },
-        success: function(response) {
-            // Handle the parsed data and populate your form
-            const parsedQuestion = response.question;
-            const parsedOptions = response.options;
-            console.log(response);
-            console.log(parsedOptions);
-            // Populate the question and options fields in your form
-            $('#questionField').val(parsedQuestion);
-            const { question1, options1 } = parseDropdownText(ocrResult);
-            
-                console.log("Questions:");
-                console.log(question1);
-
-                console.log("Options:");
-                console.log(options1);
-
-        },
-        error: function() {
-            // Handle error if AJAX request fails
-            console.log('Error fetching data from server.');
-        }
-    });
-}
-
-
-
 
 function parseDropdownText(text) {
     // Split the text into lines
@@ -107,11 +75,11 @@ $('#extractButton').on('click', function() {
                     const { question1, options1 } = parseDropdownText(extractedText);
                     console.log(extractedText);
                 
-                        Console.log("Questions:");
-                        Console.log(question);
+                        console.log("Questions:");
+                        console.log(question);
 
-                        Console.log("Options:");
-                        Console.log(options);
+                        console.log("Options:");
+                        console.log(options);
 
                     // Parse extractedText to generate dropdown
                     // Update the dropdownContainer with the generated dropdown
