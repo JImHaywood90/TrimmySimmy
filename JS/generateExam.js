@@ -110,7 +110,8 @@ $('#extractButton').on('click', function() {
         success: function(response) {
             // Use Tesseract.js to process the locally saved image
             imagePathLocal = '"' + 'PHP/' + response + '"';
-            Tesseract.recognize(response.localImageUrl)
+            console.log(imagePathLocal);
+            Tesseract.recognize(imagePathLocal)
                 .then(result => {
                     const extractedText = result.text;
                     console.log(extractedText);
