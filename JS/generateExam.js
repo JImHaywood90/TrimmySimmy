@@ -24,7 +24,7 @@ document.addEventListener('keydown', function(event) {
 
 async function performOCR(imageUrl) {
     // Use Tessera.cat or your chosen OCR library to process the image
-    const ocrResult = await processImageWithOCR(imageUrl);
+    const ocrResult = await processImageWithOCR(imageUrl, { mode: 'no-cors' });
     
     // Extract dropdown information from OCR result using the parseDropdownText function
     const { question, options } = parseDropdownText(ocrResult);
