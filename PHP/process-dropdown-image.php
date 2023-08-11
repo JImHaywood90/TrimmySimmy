@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageUrl'])) {
         
         if ($downloaded !== false) {
             // Return the local URL of the saved image
-            echo json_encode(['localImageUrl' => $savePath]);
+            echo $savePath;
         } else {
             echo json_encode(['error' => 'Image download failed']);
         }
