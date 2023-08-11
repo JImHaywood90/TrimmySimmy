@@ -37,15 +37,36 @@ async function performOCR(imageUrl) {
     document.getElementById('allOptionsText').value = optionsText;
 }
 
-async function processImageWithOCR(imageUrl) {
-    try {
-        const { data: { text } } = await Tesseract.recognize(imageUrl);
-        return text;
-    } catch (error) {
-        console.error('Error processing image with OCR:', error);
-        return ''; // Return an empty string if there's an error
-    }
+
+
+// Function to call the PHP script and process the OCR result
+function processImageWithOCR(imageUrl) {
+    $.ajax({
+        url: 'PHP/process-dropdown-image.php',
+        method: 'GET',
+        data: { imageUrl: imageUrl },
+        success: function(response) {
+            // Handle the parsed data and populate your form
+            const parsedQuestion = response.question;
+            const parsedOptions = response.options;
+            console.log(parsedQuestion);
+            console.log(parsedOptions);
+            // Populate the question and options fields in your form
+            $('#questionField').val(parsedQuestion);
+            parsedOptions.forEach(function(optionText, index) {
+                // Create and append option elements to your dropdown
+                // You can adapt your existing code to add options here
+            });
+        },
+        error: function() {
+            // Handle error if AJAX request fails
+            console.log('Error fetching data from server.');
+        }
+    });
 }
+
+
+
 
 function parseDropdownText(text) {
     // Split the text into lines
@@ -74,24 +95,18 @@ function parseDropdownText(text) {
     return { question: parsedQuestion, options: parsedOptions };
 }
 
-// Handle button click to extract text and generate dropdown
-document.getElementById('extractTextButton').addEventListener('click', () => {
-    // Get the HTML content from TinyMCE
-    const htmlContent = tinymce.get('imageEditor').getContent();
+// Button click event handler
+$('#extractButton').on('click', function() {
+    // Get the HTML content of the TinyMCE editor
+    const editorContent = tinymce.get('imageEditor').getContent();
 
-    // Parse the HTML to extract the image URL
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-    const imgTag = doc.querySelector('img');
+    // Parse the HTML content to extract the image URL from the img tag
+    const imageUrl = $(editorContent).find('img').attr('src');
 
-    if (imgTag) {
-        const imageUrl = imgTag.getAttribute('src');
-        // Pass imageUrl to Tessera.cat for OCR processing
-        performOCR(imageUrl);
-    } else {
-        console.log('No image found in the HTML content.');
-    }
+    // Call the processImageWithOCR function with the image URL
+    processImageWithOCR(imageUrl);
 });
+
 
 function splitOptions() {
     var allOptionsText = $('#allOptionsText').val();
