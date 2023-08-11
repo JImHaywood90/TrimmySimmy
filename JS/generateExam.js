@@ -28,42 +28,44 @@ document.addEventListener('keydown', function(event) {
 function parseDropdownText(text) {
     // Split the text into lines
     const lines = text.split('\n');
-    console.log(lines);
-    
+
     // Initialize variables to store parsed questions and options
-    let currentQuestion = '';
+    currentQuestion = null;
 
     // Iterate through each line
     for (const line of lines) {
         // Trim leading and trailing spaces
         const trimmedLine = line.trim();
-        console.log(trimmedLine);
-        
-        // Check if the line ends with ": v"
-        if (trimmedLine.endsWith(' v')) {
-            if (currentQuestion) {
-                parsedQuestions.push(currentQuestion);
-                console.log("Parsed Question: " + currentQuestion);
-            }
-            currentQuestion = trimmedLine.substring(0, trimmedLine.length - 2).trim();
-        } else if (trimmedLine.endsWith(': x')) {
-            // If line ends with ": x", treat it as an option
-            parsedOptions.push(trimmedLine.substring(0, trimmedLine.length - 2).trim());
-            console.log("Parsed Option: " + parsedOptions[parsedOptions.length - 1]);
-        } else if (trimmedLine !== '') {
-            // If line is not empty and doesn't end with ": v" or ": x", treat it as an option
-            parsedOptions.push(trimmedLine);
-            console.log("Parsed Option: " + parsedOptions[parsedOptions.length - 1]);
+
+        // Check if the line contains a colon
+        const colonIndex = trimmedLine.indexOf(':');
+        const dotIndex = trimmedLine.lastIndexOf('.');
+        const isQuestion = (colonIndex !== -1 || (dotIndex !== -1 && trimmedLine.endsWith('. v')));
+
+        if (isQuestion) {
+            // Extract question text and store it as a new question
+            const questionText = (colonIndex !== -1)
+                ? trimmedLine.substring(0, colonIndex).trim()
+                : trimmedLine.substring(0, dotIndex).trim();
+            
+            console.log('Parsed Question:', questionText);
+
+            currentQuestion = { question: questionText, options: [] };
+            parsedQuestions.push(currentQuestion);
+        } else if (currentQuestion && trimmedLine !== '') {
+            // Add the option to the current question's options
+            const optionText = trimmedLine.trim();
+            currentQuestion.options.push(optionText);
+
+            console.log('Parsed Option:', optionText);
         }
     }
-    
-    if (currentQuestion) {
-        parsedQuestions.push(currentQuestion);
-        console.log("Parsed Question: " + currentQuestion);
-    }
 
-    return { questions1: parsedQuestions, options1: parsedOptions };
+    console.log('Parsed Questions:', parsedQuestions);
+
+    return parsedQuestions;
 }
+
 
 
 // Button click event handler
