@@ -59,10 +59,14 @@ function processImageWithOCR(imageUrl) {
             console.log(parsedOptions);
             // Populate the question and options fields in your form
             $('#questionField').val(parsedQuestion);
-            parsedOptions.forEach(function(optionText, index) {
-                // Create and append option elements to your dropdown
-                // You can adapt your existing code to add options here
-            });
+            const { question1, options1 } = parseDropdownText(ocrResult);
+            
+                Console.log("Questions:");
+                Console.log(question1);
+
+                Console.log("Options:");
+                Console.log(options1);
+
         },
         error: function() {
             // Handle error if AJAX request fails
