@@ -71,7 +71,7 @@ function processImageWithOCR(imageUrl) {
 function parseDropdownText(text) {
     // Split the text into lines
     const lines = text.split('\n');
-
+    console.log(lines);
     // Initialize variables to store parsed question and options
     let parsedQuestion = '';
     const parsedOptions = [];
@@ -80,7 +80,7 @@ function parseDropdownText(text) {
     for (const line of lines) {
         // Trim leading and trailing spaces
         const trimmedLine = line.trim();
-
+        console.log(trimmedLine);
         // Check if the line contains a colon
         const colonIndex = trimmedLine.indexOf(':');
         if (colonIndex !== -1) {
