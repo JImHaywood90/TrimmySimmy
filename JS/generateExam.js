@@ -33,7 +33,7 @@ async function performOCR(imageUrl) {
     Console.log(question);
     
     Console.log("Options:");
-    Console.log(options]);
+    Console.log(options);
     
     // Update your UI with extracted question and options
     document.getElementById('questionText').value = question;
