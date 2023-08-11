@@ -76,10 +76,10 @@ $('#extractButton').on('click', function() {
                     console.log(extractedText);
                 
                         console.log("Questions:");
-                        console.log(question);
+                        console.log(question1);
 
                         console.log("Options:");
-                        console.log(options);
+                        console.log(options1);
 
                     // Parse extractedText to generate dropdown
                     // Update the dropdownContainer with the generated dropdown
