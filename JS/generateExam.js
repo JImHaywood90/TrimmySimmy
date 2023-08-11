@@ -9,6 +9,8 @@ var multipleOptionCount = 0;
 var examJSON;
 var dataTable;
 var dynamicColumns = [];
+let parsedQuestion = '';
+const parsedOptions = [];
 
 document.addEventListener('keydown', function(event) {
     // Check if the event target is an input or textarea
@@ -83,8 +85,6 @@ function parseDropdownText(text) {
     const lines = text.split('\n');
     console.log(lines);
     // Initialize variables to store parsed question and options
-    let parsedQuestion = '';
-    const parsedOptions = [];
 
     // Iterate through each line
     for (const line of lines) {
