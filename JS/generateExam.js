@@ -9,8 +9,8 @@ var multipleOptionCount = 0;
 var examJSON;
 var dataTable;
 var dynamicColumns = [];
-const parsedQuestions = [];
-const parsedOptions = [];
+var parsedQuestions = [];
+var parsedOptions = [];
 
 document.addEventListener('keydown', function(event) {
     // Check if the event target is an input or textarea
@@ -40,7 +40,7 @@ function parseDropdownText(text) {
         console.log(trimmedLine);
         
         // Check if the line ends with ": v"
-        if (trimmedLine.endsWith(': v')) {
+        if (trimmedLine.endsWith(' v')) {
             if (currentQuestion) {
                 parsedQuestions.push(currentQuestion);
                 console.log("Parsed Question: " + currentQuestion);
